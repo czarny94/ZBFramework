@@ -30,7 +30,7 @@ public:
   void deleteTexture(QString id);
   /**Czysci cala mape*/
   void deleteAll();
-
+  ~TextureManager();
 signals:
 
 public slots:
@@ -38,7 +38,7 @@ protected:
     std::map<QString,std::shared_ptr<QPixmap>> mTextures;
 
 private:
-    TextureManager(QObject *parent = 0);
+    TextureManager();
     static TextureManager* mInstance;
 };
 

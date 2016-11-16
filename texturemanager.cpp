@@ -77,10 +77,20 @@ void TextureManager::deleteTexture(QString id)
 
 void TextureManager::deleteAll()
 {
-   mTextures.clear();
+    for(std::map<QString,std::shared_ptr<QPixmap>>::iterator obj=mTextures.begin();obj!=mTextures.end();++obj)
+    {
+        if( obj->second.unique())
+            mTextures.erase(obj);
+    }
+
 }
 
-TextureManager::TextureManager(QObject *parent) : QObject(parent)
+TextureManager::~TextureManager()
+{
+    mTextures.clear();
+}
+
+TextureManager::TextureManager()
 {
 
 }
