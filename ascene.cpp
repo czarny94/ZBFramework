@@ -1,6 +1,7 @@
 #include "ascene.h"
 
-AScene::AScene()
+
+AScene::AScene(QObject *parent):QGraphicsScene(parent),mSceneID("")
 {
 
 }
