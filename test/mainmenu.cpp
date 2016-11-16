@@ -1,6 +1,15 @@
 #include "mainmenu.h"
 
-MainMenu::MainMenu()
+MainMenu::MainMenu():AGameState("MainMenu")
+{
+}
+
+void MainMenu::onEnter()
+{
+
+}
+
+void MainMenu::onExit()
 {
 
 }

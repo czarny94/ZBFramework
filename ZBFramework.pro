@@ -17,12 +17,14 @@ SOURCES += main.cpp\
     texturemanager.cpp \
     vector2d.cpp \
     aactor.cpp \
-    ascene.cpp \
-    scenemanager.cpp
+    test/mainmenu.cpp \
+    agamestate.cpp \
+    gamestatemanager.cpp
 
 HEADERS  += engine.h \
     texturemanager.h \
     vector2d.h \
     aactor.h \
-    ascene.h \
-    scenemanager.h
+    test/mainmenu.h \
+    agamestate.h \
+    gamestatemanager.h

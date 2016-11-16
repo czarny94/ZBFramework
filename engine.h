@@ -2,6 +2,8 @@
 #define ENGINE_H
 
 #include <QWidget>
+#include "gamestatemanager.h"
+
 
 class Engine : public QWidget
 {
@@ -10,6 +12,10 @@ class Engine : public QWidget
 public:
     Engine(QWidget *parent = 0);
     ~Engine();
+protected:
+    GameStateManager* mStateManager;
+
+
 };
 
 #endif // ENGINE_H

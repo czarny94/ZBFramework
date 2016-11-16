@@ -1,0 +1,7 @@
+#include "ascene.h"
+
+
+AScene::AScene(QString sceneID):mSceneID(sceneID)
+{
+
+}

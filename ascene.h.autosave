@@ -8,7 +8,7 @@ class AScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    explicit AScene(QObject *parent = Q_NULLPTR);
+    explicit AScene(QString sceneID);
     //AScene(QString& sceneID, QObject *parent = Q_NULLPTR);
     virtual void onEnter()=0;
     virtual void onExit()=0;

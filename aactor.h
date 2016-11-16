@@ -13,7 +13,7 @@ public:
     virtual qreal x()=0;
     virtual qreal y()=0;
     virtual QGraphicsItem* getGraphicItem(){return mGraphic;}
-    virtual void update();
+   // virtual void update()=0;
     virtual ~AActor();
 signals:
 
