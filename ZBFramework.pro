@@ -14,7 +14,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         engine.cpp \
-    texturemanager.cpp
+    texturemanager.cpp \
+    vector2d.cpp \
+    aactor.cpp \
+    ascene.cpp \
+    scenemanager.cpp
 
 HEADERS  += engine.h \
-    texturemanager.h
+    texturemanager.h \
+    vector2d.h \
+    aactor.h \
+    ascene.h \
+    scenemanager.h
