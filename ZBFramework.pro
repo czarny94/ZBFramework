@@ -17,14 +17,35 @@ SOURCES += main.cpp\
     texturemanager.cpp \
     vector2d.cpp \
     aactor.cpp \
-    test/mainmenu.cpp \
     agamestate.cpp \
-    gamestatemanager.cpp
+    gamestatemanager.cpp \
+    test/mainmenu.cpp \
+    test/level.cpp \
+    test/bullet.cpp \
+    test/enemy.cpp \
+    test/game.cpp \
+    test/health.cpp \
+    test/myrect.cpp \
+    test/score.cpp
 
 HEADERS  += engine.h \
     texturemanager.h \
     vector2d.h \
     aactor.h \
-    test/mainmenu.h \
     agamestate.h \
-    gamestatemanager.h
+    gamestatemanager.h \
+    test/mainmenu.h \
+    test/level.h \
+    test/bullet.h \
+    test/enemy.h \
+    test/game.h \
+    test/health.h \
+    test/myrect.h \
+    test/score.h
+
+FORMS +=
+
+DISTFILES +=
+
+RESOURCES += \
+    space.qrc

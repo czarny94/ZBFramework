@@ -40,7 +40,7 @@ bool TextureManager::loadTexture(QString fileName, QString id,const char *format
     }
 
 
-        mTextures.insert(std::pair<QString,std::shared_ptr<QPixmap>>(id,(std::move(texture))));//chyba nie ma konstruktora przenoszacego
+      //  mTextures.insert(std::pair<QString,std::shared_ptr<QPixmap>>(id,(std::move(texture))));//chyba nie ma konstruktora przenoszacego
         return true;
 
 }
@@ -59,8 +59,10 @@ bool TextureManager::insertTexture(QPixmap *texture, QString id)
         return false;
     }
 
-
-        mTextures.insert(std::pair<QString,std::shared_ptr<QPixmap>>(id,(std::move(texture))));//chyba nie ma konstruktora przenoszacego
+        std::shared_ptr<QPixmap> tempPtr(texture);
+        //std::pair<QString,std::shared_ptr<QPixmap>>
+        auto tempPair=std::make_pair(id,tempPtr);
+        mTextures.insert(tempPair);
         return true;
 
 }

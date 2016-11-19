@@ -1,19 +1,24 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include <QWidget>
+#include <QObject>
 #include "gamestatemanager.h"
 
 
-class Engine : public QWidget
+class Engine : public QObject
 {
     Q_OBJECT
 
 public:
-    Engine(QWidget *parent = 0);
-    ~Engine();
+    Engine(QObject *parent = 0);
+
+    virtual ~Engine();
+public slots:
+    void play();
+    void setCurrentState(AGameState* state);
 protected:
     GameStateManager* mStateManager;
+    AGameState* mCurrentState;
 
 
 };
