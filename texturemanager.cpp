@@ -11,9 +11,9 @@ TextureManager *TextureManager::getInstance()
     return mInstance;
 }
 
-std::shared_ptr<QPixmap> TextureManager::getTexture(QString id)
+std::shared_ptr<QPixmap> TextureManager::getTexture(QString fileName)
 {
-    auto check=mTextures.find(id);
+    auto check=mTextures.find(fileName);
     if(check==mTextures.end())
     {
         return nullptr;
@@ -24,56 +24,68 @@ std::shared_ptr<QPixmap> TextureManager::getTexture(QString id)
     }
 }
 
-bool TextureManager::loadTexture(QString fileName, QString id,const char *format , Qt::ImageConversionFlags flags)
+bool TextureManager::loadTexture(QString fileName,const char *format , Qt::ImageConversionFlags flags)
 {
-    QPixmap* texture=new QPixmap(fileName,format,flags);
+    QPixmap* texture=new QPixmap();
+
     if (!texture)
     {
-        throw(QString("nieudalo sie zaladowac QPixmap"));
+        throw(QString("nieudalo sie stworzyc QPixmap"));
         return false;
     }
-    auto check=mTextures.find(id);
+
+    auto check=mTextures.find(fileName);
     if(check!=mTextures.end())
     {
         throw(QString("podane id juz istnieje"));
+        delete texture;
+        return false;
+    }
+    if(!texture->load(fileName,format,flags))
+    {
+        throw(QString("Nie udało się załadować textury"));
+        delete texture;
         return false;
     }
 
+    std::shared_ptr<QPixmap> tempPtr(texture);
 
-      //  mTextures.insert(std::pair<QString,std::shared_ptr<QPixmap>>(id,(std::move(texture))));//chyba nie ma konstruktora przenoszacego
-        return true;
+    auto tempPair=std::make_pair(fileName,tempPtr);
+    mTextures.insert(tempPair);
+
+    return true;
 
 }
 
-bool TextureManager::insertTexture(QPixmap *texture, QString id)
+//bool TextureManager::insertTexture(QPixmap *texture, QString fileName)
+//{
+//    if (!texture)
+//    {
+//        throw(QString("pusty wskaznik"));
+//        return false;
+//    }
+//    auto check=mTextures.find(fileName);
+//    if(check!=mTextures.end())
+//    {
+//        throw(QString("podane id juz istnieje"));
+//        return false;
+//    }
+
+//        std::shared_ptr<QPixmap> tempPtr(texture);
+//        //std::pair<QString,std::shared_ptr<QPixmap>>
+//        auto tempPair=std::make_pair(fileName,tempPtr);
+//        mTextures.insert(tempPair);
+//        return true;
+
+//}
+
+void TextureManager::deleteTexture(QString fileName)
 {
-    if (!texture)
-    {
-        throw(QString("pusty wskaznik"));
-        return false;
-    }
-    auto check=mTextures.find(id);
-    if(check!=mTextures.end())
-    {
-        throw(QString("podane id juz istnieje"));
-        return false;
-    }
-
-        std::shared_ptr<QPixmap> tempPtr(texture);
-        //std::pair<QString,std::shared_ptr<QPixmap>>
-        auto tempPair=std::make_pair(id,tempPtr);
-        mTextures.insert(tempPair);
-        return true;
-
-}
-
-void TextureManager::deleteTexture(QString id)
-{
-    auto texture=mTextures.find(id);
+    auto texture=mTextures.find(fileName);
     if(texture!=mTextures.end())
     {
        if( texture->second.unique())
-           mTextures.erase(id);
+           mTextures.erase(fileName);
     }
 }
 
