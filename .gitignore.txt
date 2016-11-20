@@ -1,2 +1,3 @@
 test/*
 *.autosave
+ZBFramework.pro.user
