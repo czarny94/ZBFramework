@@ -1,15 +1,27 @@
-#include "myrect.h"
+#include "player.h"
 #include <QDebug>
 #include "bullet.h"
 #include "enemy.h"
-
-MyRect::MyRect(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
+#include <QImage>
+Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 {
     sound=new QSound(":/music/test/res/phaser.wav");//(QUrl("qrc:/sfx/res/phaser.wav"));//QMediaPlayer();
    // sound->setMedia(QUrl("qrc:/sfx/res/phaser.wav"));
     TextureManager* texManag= TextureManager::getInstance();
+    QString error;
 
-    setPixmap(QPixmap(":/img/test/res/boss1.png"));
+    try
+    {
+        texManag->loadTexture("d:/c++/ZBFramework/boss1.png");
+    }
+    catch(QString &error)
+    {
+        qDebug()<<error;
+    }
+
+    mTexture=texManag->getTexture("d:/c++/ZBFramework/boss1.png");
+    setPixmap(*mTexture);
+
     setScale(0.5);
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
@@ -17,7 +29,7 @@ MyRect::MyRect(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
     setRotation(90);
 }
 
-void MyRect::keyPressEvent(QKeyEvent *event)
+void Player::keyPressEvent(QKeyEvent *event)
 {
     qDebug()<<"key pressed";
 
@@ -53,8 +65,14 @@ void MyRect::keyPressEvent(QKeyEvent *event)
     }
 
 }
+
+Player::~Player()
+{
+    mTexture.reset();
+    TextureManager::getInstance()->deleteTexture("player");
+}
 /**Create a enemy*/
-void MyRect::spawn()
+void Player::spawn()
 {
     Enemy* enemy=new Enemy();
     scene()->addItem(enemy);

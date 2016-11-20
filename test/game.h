@@ -4,7 +4,7 @@
 #include <QGraphicsScene>
 #include <QWidget>
 #include <QMediaPlayer>
-#include "myrect.h"
+#include "player.h"
 #include "score.h"
 #include "health.h"
 
@@ -17,7 +17,7 @@ public:
     Health* health;
 private:
     QGraphicsScene* scene;
-    MyRect * player;
+    Player * player;
     QMediaPlayer * mediaPlayer;
 
 };

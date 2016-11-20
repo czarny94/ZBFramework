@@ -11,12 +11,13 @@
 #include "score.h"
 
 
-class MyRect : public QObject,public QGraphicsPixmapItem
+class Player : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    MyRect(QGraphicsItem* parent=0);
+    Player(QGraphicsItem* parent=0);
     void keyPressEvent(QKeyEvent* event);
+    ~Player();
 
 public slots:
     void spawn();

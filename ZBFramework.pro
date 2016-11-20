@@ -16,7 +16,6 @@ SOURCES += main.cpp\
         engine.cpp \
     texturemanager.cpp \
     vector2d.cpp \
-    aactor.cpp \
     agamestate.cpp \
     gamestatemanager.cpp \
     test/mainmenu.cpp \
@@ -25,13 +24,13 @@ SOURCES += main.cpp\
     test/enemy.cpp \
     test/game.cpp \
     test/health.cpp \
-    test/myrect.cpp \
-    test/score.cpp
+    test/score.cpp \
+    resourcemanager.cpp \
+    test/player.cpp
 
 HEADERS  += engine.h \
     texturemanager.h \
     vector2d.h \
-    aactor.h \
     agamestate.h \
     gamestatemanager.h \
     test/mainmenu.h \
@@ -40,8 +39,9 @@ HEADERS  += engine.h \
     test/enemy.h \
     test/game.h \
     test/health.h \
-    test/myrect.h \
-    test/score.h
+    test/score.h \
+    resourcemanager.h \
+    test/player.h
 
 FORMS +=
 

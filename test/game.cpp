@@ -9,7 +9,7 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
     //create s a scene
     QGraphicsScene* scene=new QGraphicsScene();
 
-    MyRect* player=new MyRect;
+    player=new Player;
     //player->setRect(0,0,100,100);
 
     //make rect focusable
@@ -55,6 +55,6 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
     mediaPlayer->volumeChanged(1);
    //mediaPlayer->play();
 
-    show();
+    //show();
 
 }
