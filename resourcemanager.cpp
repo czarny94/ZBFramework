@@ -1,6 +1,6 @@
 #include "resourcemanager.h"
 
-ResourceManager::ResourceManager(QObject *parent) : QObject(parent)
-{
+//ResourceManager::ResourceManager(QObject *parent) : QObject(parent)
+//{
 
-}
+//}
