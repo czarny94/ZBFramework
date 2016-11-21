@@ -15,7 +15,7 @@ Bullet::Bullet(QGraphicsItem* parent):QGraphicsPixmapItem(parent)
 
     try
     {
-       texture=texManag->loadTexture("d:/c++/ZBFramework/test/res/bullet1.png");
+       texture=texManag->loadTexture("res/bullet1.png");
     }
     catch(QString &error)
     {

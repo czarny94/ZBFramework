@@ -1,5 +1,6 @@
 #include "texturemanager.h"
 #include <QDebug>
+#include <QCoreApplication>
 
 TextureManager* TextureManager::mInstance=nullptr;
 
@@ -41,8 +42,8 @@ std::shared_ptr<QPixmap> TextureManager::loadTexture(QString fileName,const char
         {
             throw(QString("nieudalo sie stworzyc QPixmap"));
         }
-
-        if(!texture->load(fileName,format,flags))
+        QString currenthPath=QCoreApplication::applicationDirPath() ;
+        if(!texture->load((currenthPath + "/" +fileName),format,flags))
         {
             throw(QString("Nie udało się załadować textury"));
             delete texture;

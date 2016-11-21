@@ -12,7 +12,7 @@ Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 
     try
     {
-         mTexture=texManag->loadTexture("d:/c++/ZBFramework/test/res/boss1.png");
+         mTexture=texManag->loadTexture("res/boss1.png");
     }
     catch(QString &error)
     {
