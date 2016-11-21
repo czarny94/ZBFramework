@@ -5,6 +5,8 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QSound>
+
+#include "texturemanager.h"
 class Bullet:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
@@ -13,7 +15,7 @@ public:
 public slots:
     void move();
 private:
-
+    std::shared_ptr<QPixmap> texture;
     QSound* sound;
 
 

@@ -10,9 +10,22 @@ extern Game* game;
 Bullet::Bullet(QGraphicsItem* parent):QGraphicsPixmapItem(parent)
 {
     sound=new QSound(":/music/test/res/boom.wav");
+    TextureManager* texManag= TextureManager::getInstance();
+    QString error;
 
-    //setRect(0,0,10,50);
-    setPixmap(QPixmap(":/img/test/res/bullet1.png"));
+    try
+    {
+       texture=texManag->loadTexture("d:/c++/ZBFramework/test/res/bullet1.png");
+    }
+    catch(QString &error)
+    {
+        qDebug()<<error;
+    }
+
+
+
+
+    setPixmap(*texture);
     QTimer* timer=new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 

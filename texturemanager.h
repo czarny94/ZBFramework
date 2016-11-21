@@ -22,7 +22,7 @@ public:
     *format
     *flags */
   std::shared_ptr<QPixmap> getTexture(QString id);
-  bool loadTexture(QString fileName,const char *format = Q_NULLPTR, Qt::ImageConversionFlags flags = Qt::AutoColor);
+  std::shared_ptr<QPixmap> loadTexture(QString fileName,const char *format = Q_NULLPTR, Qt::ImageConversionFlags flags = Qt::AutoColor);
   /**przenosi texture utworzona poza menagerem, rzuca wyjatki QString*/
  // bool insertTexture(QPixmap* texture, QString id);
   /**Usuwa pojedyncza texture jesli nie istnieja inne referencje poza ta z mapy*/

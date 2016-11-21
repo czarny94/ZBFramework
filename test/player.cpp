@@ -12,14 +12,14 @@ Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 
     try
     {
-        texManag->loadTexture("d:/c++/ZBFramework/boss1.png");
+         mTexture=texManag->loadTexture("d:/c++/ZBFramework/test/res/boss1.png");
     }
     catch(QString &error)
     {
         qDebug()<<error;
     }
 
-    mTexture=texManag->getTexture("d:/c++/ZBFramework/boss1.png");
+
     setPixmap(*mTexture);
 
     setScale(0.5);

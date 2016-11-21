@@ -26,7 +26,10 @@ SOURCES += main.cpp\
     test/health.cpp \
     test/score.cpp \
     resourcemanager.cpp \
-    test/player.cpp
+    test/player.cpp \
+    test/enemyprototype.cpp \
+    aprototype.cpp \
+    graphicsitemfactory.cpp
 
 HEADERS  += engine.h \
     texturemanager.h \
@@ -41,7 +44,10 @@ HEADERS  += engine.h \
     test/health.h \
     test/score.h \
     resourcemanager.h \
-    test/player.h
+    test/player.h \
+    test/enemyprototype.h \
+    aprototype.h \
+    graphicsitemfactory.h
 
 FORMS +=
 

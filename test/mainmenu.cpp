@@ -57,7 +57,7 @@ void MainMenu::onEnter()
     mScene->setSceneRect(0,0,800,600);
     mCamera->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mCamera->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mScene->setBackgroundBrush(QBrush(QImage(":/img/test/spacecity.jpg")));
+    mScene->setBackgroundBrush(QBrush(QImage(":/img/test/res/spacecity.jpg")));
 
 //    mediaPlayer=new QMediaPlayer();
 //    QMediaPlaylist* playlist=new QMediaPlaylist();

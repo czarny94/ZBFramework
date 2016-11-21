@@ -1,4 +1,5 @@
 #include "texturemanager.h"
+#include <QDebug>
 
 TextureManager* TextureManager::mInstance=nullptr;
 
@@ -24,37 +25,36 @@ std::shared_ptr<QPixmap> TextureManager::getTexture(QString fileName)
     }
 }
 
-bool TextureManager::loadTexture(QString fileName,const char *format , Qt::ImageConversionFlags flags)
+std::shared_ptr<QPixmap> TextureManager::loadTexture(QString fileName,const char *format , Qt::ImageConversionFlags flags)
 {
-    QPixmap* texture=new QPixmap();
-
-    if (!texture)
-    {
-        throw(QString("nieudalo sie stworzyc QPixmap"));
-        return false;
-    }
-
     auto check=mTextures.find(fileName);
     if(check!=mTextures.end())
     {
-        throw(QString("podane id juz istnieje"));
-        delete texture;
-        return false;
+        qDebug()<<"textura juz załadowana";
+        return check->second;
     }
-    if(!texture->load(fileName,format,flags))
+
+    else
     {
-        throw(QString("Nie udało się załadować textury"));
-        delete texture;
-        return false;
+        QPixmap* texture=new QPixmap();
+        if (!texture)
+        {
+            throw(QString("nieudalo sie stworzyc QPixmap"));
+        }
+
+        if(!texture->load(fileName,format,flags))
+        {
+            throw(QString("Nie udało się załadować textury"));
+            delete texture;
+        }
+
+        std::shared_ptr<QPixmap> tempPtr(texture);
+
+        auto tempPair=std::make_pair(fileName,tempPtr);
+        mTextures.insert(tempPair);
+
+        return tempPair.second;
     }
-
-    std::shared_ptr<QPixmap> tempPtr(texture);
-
-    auto tempPair=std::make_pair(fileName,tempPtr);
-    mTextures.insert(tempPair);
-
-    return true;
-
 }
 
 //bool TextureManager::insertTexture(QPixmap *texture, QString fileName)
