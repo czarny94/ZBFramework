@@ -11,10 +11,15 @@ class AGameState : public QWidget
     Q_OBJECT
 public:
     explicit AGameState(QString stateID);//,Engine* engine);
-
+    /**Funkcja wywoływana na wejściu stanu*/
     virtual void onEnter()=0;
+
+    /**Funkcja wywoływana na wyjsciu stanu*/
     virtual void onExit()=0;
+
+    /**Puszczenie stanu w ruch*/
     virtual void play()=0;
+
     QString getStateId(){return mStateID;}
 
     virtual ~AGameState();
