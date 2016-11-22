@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include "aprototype.h"
+#include <QDebug>
 
 /*
 *template abstract factory
@@ -21,7 +22,9 @@ public:
     virtual ~GraphicsItemFactory();
 
 
-    virtual QGraphicsItem* create(){return mPrototype->clone();}
+    virtual QGraphicsItem* create(){qDebug()<<"create GItem";
+        return mPrototype->clone();
+                                   }
 protected:
     APrototype* mPrototype;
 };

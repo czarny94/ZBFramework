@@ -74,6 +74,6 @@ Player::~Player()
 /**Create a enemy*/
 void Player::spawn()
 {
-    Enemy* enemy=new Enemy();
-    scene()->addItem(enemy);
+//    Enemy* enemy=new Enemy();
+//    scene()->addItem(enemy);
 }

@@ -11,17 +11,18 @@ class Enemy:public QObject,public QGraphicsPixmapItem
 {
 Q_OBJECT
 public:
-    Enemy();
+    Enemy(QPixmap* texture);
 public slots:
     void move();
     void anim();
 private:
+    int tick;
     QSound* sound;
     QPixmap* sheet;
     int frame;
     int width;
     qreal fWidth;
-    int tick;
+
 
 };
 

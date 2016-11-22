@@ -7,9 +7,9 @@
 #include "test/game.h"
 
 extern Game* game;
-Enemy::Enemy():frame(3),tick(0)
+Enemy::Enemy(QPixmap* texture):frame(3),tick(0),sheet(texture)
 {
-    sheet=new QPixmap(":/img/test/res/enemy3.png");
+   // sheet=new QPixmap(":/img/test/res/enemy3.png");
 
     int randomNumber=rand() %700;
     setPos(randomNumber,0);

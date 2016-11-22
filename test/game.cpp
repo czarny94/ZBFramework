@@ -7,18 +7,13 @@
 Game::Game(QWidget *parent):QGraphicsView(parent)
 {
     //create s a scene
-    QGraphicsScene* scene=new QGraphicsScene();
-
+     scene=new QGraphicsScene();
+    mEnemyProt=new EnemyPrototype(this);
+    mSpawner=new GraphicsItemFactory(mEnemyProt,this);
     player=new Player;
-    //player->setRect(0,0,100,100);
 
-    //make rect focusable
-
-    Enemy* enemy=new Enemy();
-    enemy->setPos(400,500);
-    //add the item to the scene
     scene->addItem(player);
-    scene->addItem(enemy);
+
 
     QImage image(":/img/test/res/cosmos.jpg");
     score=new Score();
@@ -42,7 +37,7 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
 
     //spawn enemies
     QTimer* timer=new QTimer();
-    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
+    QObject::connect(timer,SIGNAL(timeout()),this,SLOT(spawn()));
     timer->start(2000);
 
     //play bg music
@@ -57,4 +52,10 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
 
     //show();
 
+}
+
+void Game::spawn()
+{   qDebug()<<"spawn start";
+    QGraphicsItem* enemy=mSpawner->create();
+     scene->addItem(enemy); qDebug()<<"add item to scene" ;
 }
