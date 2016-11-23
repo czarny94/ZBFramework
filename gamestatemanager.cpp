@@ -74,9 +74,13 @@ AGameState *GameStateManager::getState()
 
 GameStateManager::~GameStateManager()
 {
-    qDebug()<<"GSM destr";
 
+    for(auto obj:mStates)
+    {
+        obj->deleteLater();
+    }
 
     mStates.clear();
+    qDebug()<<"GSM destr";
 }
 

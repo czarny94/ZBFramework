@@ -5,6 +5,11 @@ GraphicsItemFactory::GraphicsItemFactory(APrototype *prot,QObject* parent ):QObj
 
 }
 
+GraphicsItemFactory::GraphicsItemFactory(QObject *parent):QObject(parent)
+{
+
+}
+
 
 void GraphicsItemFactory::setPrototype(APrototype *prot)
 {
@@ -13,5 +18,5 @@ void GraphicsItemFactory::setPrototype(APrototype *prot)
 
 GraphicsItemFactory::~GraphicsItemFactory()
 {
-
+    qDebug()<<"destr factory";
 }
