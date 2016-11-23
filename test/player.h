@@ -20,7 +20,7 @@ public:
     ~Player();
 
 public slots:
-    void spawn();
+
 private:
     //QMediaPlayer* sound;
     QSound* sound;

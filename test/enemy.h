@@ -11,18 +11,25 @@ class Enemy:public QObject,public QGraphicsPixmapItem
 {
 Q_OBJECT
 public:
-    Enemy(QPixmap* texture);
+    Enemy(QPixmap* texture,QObject* parent=0);
+    ~Enemy();
 public slots:
-    void move();
-    void anim();
-private:
+    virtual void move();
+    virtual void anim();
+    virtual void hit(int dmg);
+    virtual void attack();
+protected:
+    int frame;
+    int width;
     int tick;
     QSound* sound;
     QPixmap* sheet;
-    int frame;
-    int width;
+
     qreal fWidth;
 
+    int mHealth;
+signals:
+    void shootDown();
 
 };
 

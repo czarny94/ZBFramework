@@ -5,8 +5,8 @@
 #include <QImage>
 Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 {
-    sound=new QSound(":/music/test/res/phaser.wav");//(QUrl("qrc:/sfx/res/phaser.wav"));//QMediaPlayer();
-   // sound->setMedia(QUrl("qrc:/sfx/res/phaser.wav"));
+    sound=new QSound(":/music/test/res/phaser.wav");
+
     TextureManager* texManag= TextureManager::getInstance();
     QString error;
 
@@ -31,7 +31,7 @@ Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 
 void Player::keyPressEvent(QKeyEvent *event)
 {
-    qDebug()<<"key pressed";
+    //qDebug()<<"key pressed";
 
 
    if (event->key()==Qt::Key_Right)
@@ -52,13 +52,10 @@ void Player::keyPressEvent(QKeyEvent *event)
     if (event->key()==Qt::Key_Space)
    {
           Bullet* bullet=new Bullet(parentItem());
-          //qreal rectWidth=rect().width();
+
           bullet->setPos(x(),y());
           scene()->addItem(bullet);
-          //if(!sound->isFinished())
-          //{
-          //    sound->stop();
-          //}
+
 
           sound->play();
 
@@ -71,9 +68,4 @@ Player::~Player()
     mTexture.reset();
     TextureManager::getInstance()->deleteTexture("player");
 }
-/**Create a enemy*/
-void Player::spawn()
-{
-//    Enemy* enemy=new Enemy();
-//    scene()->addItem(enemy);
-}
+

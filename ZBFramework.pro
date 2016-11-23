@@ -22,14 +22,15 @@ SOURCES += main.cpp\
     test/level.cpp \
     test/bullet.cpp \
     test/enemy.cpp \
-    test/game.cpp \
     test/health.cpp \
     test/score.cpp \
     resourcemanager.cpp \
     test/player.cpp \
     test/enemyprototype.cpp \
     aprototype.cpp \
-    graphicsitemfactory.cpp
+    graphicsitemfactory.cpp \
+    test/enemyspawner.cpp \
+    test/bulletprototype.cpp
 
 HEADERS  += engine.h \
     texturemanager.h \
@@ -40,14 +41,15 @@ HEADERS  += engine.h \
     test/level.h \
     test/bullet.h \
     test/enemy.h \
-    test/game.h \
     test/health.h \
     test/score.h \
     resourcemanager.h \
     test/player.h \
     test/enemyprototype.h \
     aprototype.h \
-    graphicsitemfactory.h
+    graphicsitemfactory.h \
+    test/enemyspawner.h \
+    test/bulletprototype.h
 
 FORMS +=
 

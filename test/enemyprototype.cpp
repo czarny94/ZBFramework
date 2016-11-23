@@ -18,6 +18,7 @@ Enemy *EnemyPrototype::clone()
 {
     qDebug()<<"clone enemy a";
     QPixmap* pix=mTexture.get();
-    return new Enemy(pix);
+
+    return new Enemy(pix,parent());
 
 }

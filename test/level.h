@@ -1,10 +1,17 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 #include "agamestate.h"
+#include "player.h"
+#include "score.h"
+#include "health.h"
 
 #include <QGraphicsRectItem>
+#include <QGraphicsView>
+#include <QMediaPlayer>
 #include <QKeyEvent>
-#include "test/game.h"
+
+#include "test/enemyspawner.h"
+#include "test/enemyprototype.h"
 
 class Level:public AGameState
 {
@@ -15,10 +22,29 @@ public:
     void onExit() override;
     void play() override;
 
+
+    Score* score;
+    Health* health;
+
     ~Level();
 private:
-   Game* mCamera;
+   QGraphicsView* mCamera;
+   QGraphicsScene* mScene;
+
+   GraphicsItemFactory* mSpawner;
+   Player* mPlayer;
+
+   QMediaPlayer* mediaPlayer;
+
+   QTimer* mSpawnTimer;
+
+   bool createScene();
+   bool createView();
+   bool createMediaPlayer();
+   bool createSpawner();
 private slots:
+   void spawnEnemy();
+
     void test1();
 
 };

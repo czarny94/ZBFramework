@@ -39,7 +39,7 @@ void Bullet::move()
     {
         if(typeid(*obj)==typeid(Enemy))
         {
-            game->score->increase();
+            //game->score->increase();
             //if(!sound->isFinished())
             //{
             //    sound->stop();
