@@ -7,8 +7,13 @@
 #include <QMediaPlayer>
 #include <QSound>
 #include <memory>
+
 #include "texturemanager.h"
-#include "score.h"
+#include "graphicsitemfactory.h"
+#include "test/bulletprototype.h"
+#include "graphicsitemfactory.h"
+
+
 
 
 class Player : public QObject,public QGraphicsPixmapItem
@@ -17,14 +22,19 @@ class Player : public QObject,public QGraphicsPixmapItem
 public:
     Player(QGraphicsItem* parent=0);
     void keyPressEvent(QKeyEvent* event);
+    void shoot();
     ~Player();
 
 public slots:
 
 private:
-    //QMediaPlayer* sound;
+
     QSound* sound;
     std::shared_ptr<QPixmap> mTexture;
+
+    GraphicsItemFactory* mPhazer;
+    BulletPrototype* mBasicBullet;
+
 };
 
 #endif // MYRECT_H

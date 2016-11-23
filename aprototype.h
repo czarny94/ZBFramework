@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QGraphicsItem>
+#include "texturemanager.h"
 
 class APrototype:public QObject
  {Q_OBJECT

@@ -27,6 +27,9 @@ Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
     setFocus();
     setTransformOriginPoint(50,50);
     setRotation(90);
+
+    mBasicBullet=new BulletPrototype(this);
+    mPhazer=new GraphicsItemFactory(mBasicBullet,this);
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -51,16 +54,20 @@ void Player::keyPressEvent(QKeyEvent *event)
             setPos(x(),y()+10);
     if (event->key()==Qt::Key_Space)
    {
-          Bullet* bullet=new Bullet(parentItem());
-
-          bullet->setPos(x(),y());
-          scene()->addItem(bullet);
-
-
-          sound->play();
+          shoot();
 
     }
 
+}
+
+void Player::shoot()
+{
+    QGraphicsItem* bullet=mPhazer->create();
+
+    bullet->setPos(x(),y());
+    scene()->addItem(bullet);
+
+    sound->play();
 }
 
 Player::~Player()
