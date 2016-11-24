@@ -18,14 +18,17 @@ Level::Level():AGameState("Level")
     mScene->addItem(mPlayer);
     mPlayer->setPos(400,500);
 
-    score=new Score();
-    mScene->addItem(score);
+    mScore=new Score();
+    mScene->addItem(mScore);
 
-    health=new Health();
-    health->setPos(health->x(),health->y()+25);
-    mScene->addItem(health);
+    mHealth=new Health();
+    mHealth->setPos(mHealth->x(),mHealth->y()+25);
+    mScene->addItem(mHealth);
 
     mCamera->setScene(mScene);
+
+    connect(mPlayer,SIGNAL(playerDead()),this,SLOT(gameOver()));
+    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(decrease(int)));
 
     qDebug()<<"kon level";
 }
@@ -69,6 +72,12 @@ Level::~Level()
     qDebug()<<"destr level";
 }
 
+void Level::gameOver()
+{
+    //mScene->addText("GAME OVER");
+    emit(changeState(new MainMenu));
+}
+
 bool Level::createScene()
 {
      mScene=new QGraphicsScene();
@@ -96,8 +105,8 @@ bool Level::createView()
 
 bool Level::createMediaPlayer()
 {
-    mediaPlayer=new QMediaPlayer();
-    QMediaPlaylist* playlist=new QMediaPlaylist();
+    mediaPlayer=new QMediaPlayer(this);
+    QMediaPlaylist* playlist=new QMediaPlaylist(this);
 
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
     playlist->addMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath()+"/res/Subjected_rancor.mp3")); //Ultraviolence - Psycho Drama - 05 - Psycho Drama.mp3 Subjected_rancor.mp3

@@ -3,7 +3,7 @@
 #include "bullet.h"
 #include "enemy.h"
 #include <QImage>
-Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
+Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent),mLives(3)
 {
     sound=new QSound(":/music/test/res/phaser.wav");
 
@@ -11,8 +11,10 @@ Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
     QString error;
 
     try
-    {
-         mTexture=texManag->loadTexture("res/boss1.png");
+    { mTextureLeft=texManag->loadTexture("res/playerLeft.png","PNG");
+
+
+         mTextureRight=texManag->loadTexture("res/playerRight.png","PNG");mTexture=texManag->loadTexture("res/player.png","PNG");
     }
     catch(QString &error)
     {
@@ -22,14 +24,20 @@ Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 
     setPixmap(*mTexture);
 
-    setScale(0.5);
+    //setScale(0.5);
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
     setTransformOriginPoint(50,50);
-    setRotation(90);
+    //setRotation(90);
 
     mBasicBullet=new BulletPrototype(this);
     mPhazer=new GraphicsItemFactory(mBasicBullet,this);
+
+    QRectF bRect= boundingRect();
+    qreal width= bRect.width();
+    mTopCenter=width/2;
+
+
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -64,7 +72,8 @@ void Player::shoot()
 {
     QGraphicsItem* bullet=mPhazer->create();
 
-    bullet->setPos(x(),y());
+    qreal bb=bullet->boundingRect().width()/2;
+    bullet->setPos(x()+mTopCenter-bb,y());
     scene()->addItem(bullet);
 
     sound->play();
@@ -74,5 +83,15 @@ Player::~Player()
 {
     mTexture.reset();
     TextureManager::getInstance()->deleteTexture("player");
+}
+
+void Player::hit(int dmg)
+{
+    mLives-=dmg;
+    emit(healthChanges(mLives));
+    if(mLives <=0)
+    {
+        emit(playerDead());
+    }
 }
 

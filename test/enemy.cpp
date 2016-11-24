@@ -3,10 +3,12 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
-
+#include <QList>
+#include <typeinfo>
 
 
 #include <QDebug>
+#include "test/player.h"
 
 
 Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),sheet(texture)
@@ -24,6 +26,8 @@ Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),
     connect(animTimer,SIGNAL(timeout()),this,SLOT(anim()));
     timer->start(10);
     animTimer->start(100);
+
+    mSound=new QSound(":/music/test/res/boom.wav");
 
 
     qDebug()<<"kon2 enemy";
@@ -44,6 +48,21 @@ void Enemy::move()
 
         scene()->removeItem(this);
         deleteLater();
+    }
+    QList<QGraphicsItem*> mcollidingItems=collidingItems();
+    for(auto obj:mcollidingItems)
+    {
+        if(typeid(*obj)==typeid(Player))
+        {
+
+            mSound->play();
+            Player* player=dynamic_cast<Player*>(obj);
+            player->hit();
+            scene()->removeItem(this);
+
+            delete this;
+            return;
+        }
     }
 }
 

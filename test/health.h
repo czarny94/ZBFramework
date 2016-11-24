@@ -9,7 +9,7 @@ public:
     Health();
     int getHealth();
 public slots:
-     void decrease();
+     void decrease(int h);
 private:
     int health;
     QWidget* widget;

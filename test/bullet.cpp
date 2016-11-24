@@ -33,7 +33,7 @@ void Bullet::move()
         if(typeid(*obj)==typeid(Enemy))
         {
 
-            mSound->play();             //niech prototyp wydaje dziwek
+            mSound->play();
             scene()->removeItem(obj);
             scene()->removeItem(this);
 

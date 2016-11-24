@@ -12,6 +12,9 @@
 
 #include "test/enemyspawner.h"
 #include "test/enemyprototype.h"
+#include "test/health.h"
+#include "test/score.h"
+
 
 class Level:public AGameState
 {
@@ -23,13 +26,16 @@ public:
     void play() override;
 
 
-    Score* score;
-    Health* health;
 
     ~Level();
+public slots:
+    void gameOver();
 private:
    QGraphicsView* mCamera;
    QGraphicsScene* mScene;
+
+   Score* mScore;
+   Health* mHealth;
 
    GraphicsItemFactory* mSpawner;
    Player* mPlayer;

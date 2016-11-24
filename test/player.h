@@ -26,14 +26,25 @@ public:
     ~Player();
 
 public slots:
+    void hit(int dmg=1);
+signals:
+    void playerDead();
+    int healthChanges(int);
 
 private:
 
+
     QSound* sound;
     std::shared_ptr<QPixmap> mTexture;
+    std::shared_ptr<QPixmap> mTextureLeft;
+    std::shared_ptr<QPixmap> mTextureRight;
+
+    qreal mTopCenter;
 
     GraphicsItemFactory* mPhazer;
     BulletPrototype* mBasicBullet;
+
+    int mLives;
 
 };
 
