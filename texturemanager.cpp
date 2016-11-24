@@ -31,7 +31,7 @@ std::shared_ptr<QPixmap> TextureManager::loadTexture(QString fileName,const char
     auto check=mTextures.find(fileName);
     if(check!=mTextures.end())
     {
-        qDebug()<<"textura juz załadowana";
+        qDebug()<<fileName<<"textura juz załadowana";
         return check->second;
     }
 
@@ -40,12 +40,12 @@ std::shared_ptr<QPixmap> TextureManager::loadTexture(QString fileName,const char
         QPixmap* texture=new QPixmap();
         if (!texture)
         {
-            throw(QString("nieudalo sie stworzyc QPixmap"));
+            throw(fileName+QString("nieudalo sie stworzyc QPixmap"));
         }
         QString currenthPath=QCoreApplication::applicationDirPath() ;
         if(!texture->load((currenthPath + "/" +fileName),format,flags))
         {
-            throw(QString("Nie udało się załadować textury"));
+            throw(fileName+QString("Nie udało się załadować textury"));
             delete texture;
         }
 
