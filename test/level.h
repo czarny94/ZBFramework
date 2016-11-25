@@ -12,8 +12,7 @@
 
 #include "test/enemyspawner.h"
 #include "test/enemyprototype.h"
-#include "test/health.h"
-#include "test/score.h"
+#include "test/gamegui.h"
 
 
 class Level:public AGameState
@@ -36,6 +35,8 @@ private:
 
    Score* mScore;
    Health* mHealth;
+
+   //GameGUI* mGui;
 
    GraphicsItemFactory* mSpawner;
    Player* mPlayer;

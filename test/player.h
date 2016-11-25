@@ -27,9 +27,10 @@ public:
 
 public slots:
     void hit(int dmg=1);
+    int getHealth();
 signals:
     void playerDead();
-    int healthChanges(int);
+    void healthChanges(int);
 
 private:
 
@@ -44,7 +45,7 @@ private:
     GraphicsItemFactory* mPhazer;
     BulletPrototype* mBasicBullet;
 
-    int mLives;
+    int mHealth;
 
 };
 

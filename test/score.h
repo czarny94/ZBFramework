@@ -1,18 +1,20 @@
 #ifndef SCORE_H
 #define SCORE_H
+
 #include <QGraphicsTextItem>
 
 class Score : public QGraphicsTextItem
 {
+    Q_OBJECT
 public:
-    Score( QWidget*  parent=0);
+    Score(QGraphicsItem* parent=0);
 
     int getScore();
 public slots:
-     void increase();
+     void set(int s);
 private:
     int score;
-    QWidget* widget;
+
 };
 
 #endif // SCORE_H

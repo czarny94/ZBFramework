@@ -14,21 +14,26 @@ Level::Level():AGameState("Level")
     createSpawner();
     createMediaPlayer();
 
+    mScore=new Score();
+    mScore->setPos(x(),y());
+
+    mHealth=new Health();
+    mHealth->setPos(mHealth->x(),mHealth->y()+25);
+
+    mScene->addItem(mHealth);
+    mScene->addItem(mScore);
+
     mPlayer=new Player;
     mScene->addItem(mPlayer);
     mPlayer->setPos(400,500);
 
-    mScore=new Score();
-    mScene->addItem(mScore);
-
-    mHealth=new Health();
-    mHealth->setPos(mHealth->x(),mHealth->y()+25);
-    mScene->addItem(mHealth);
+    //mGui=new GameGUI(this);
+    //mScene->addItem(mGui);
 
     mCamera->setScene(mScene);
 
     connect(mPlayer,SIGNAL(playerDead()),this,SLOT(gameOver()));
-    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(decrease(int)));
+    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
 
     qDebug()<<"kon level";
 }

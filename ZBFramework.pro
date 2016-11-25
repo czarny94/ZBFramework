@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     aprototype.cpp \
     graphicsitemfactory.cpp \
     test/enemyspawner.cpp \
-    test/bulletprototype.cpp
+    test/bulletprototype.cpp \
+    test/gamegui.cpp
 
 HEADERS  += engine.h \
     texturemanager.h \
@@ -49,7 +50,8 @@ HEADERS  += engine.h \
     aprototype.h \
     graphicsitemfactory.h \
     test/enemyspawner.h \
-    test/bulletprototype.h
+    test/bulletprototype.h \
+    test/gamegui.h
 
 FORMS +=
 

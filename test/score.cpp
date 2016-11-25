@@ -1,16 +1,16 @@
 #include "score.h"
 #include <QFont>
 
-Score::Score(QWidget *  parent):widget(parent),score(0)
+Score::Score(QGraphicsItem* parent):QGraphicsTextItem(parent),score(0)
 {
     setPlainText(QString("Score: ")+QString::number(score));
     setDefaultTextColor(Qt::cyan);
     setFont(QFont(QString("Times"),16));
 }
 
-void Score::increase()
+void Score::set(int s)
 {
-    score++;
+    score=s;
     setPlainText(QString("Score: ")+QString::number(score));
 }
 

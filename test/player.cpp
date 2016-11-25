@@ -3,7 +3,7 @@
 #include "bullet.h"
 #include "enemy.h"
 #include <QImage>
-Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent),mLives(3)
+Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent),mHealth(3)
 {
     sound=new QSound(":/music/test/res/phaser.wav");
 
@@ -87,11 +87,16 @@ Player::~Player()
 
 void Player::hit(int dmg)
 {
-    mLives-=dmg;
-    emit(healthChanges(mLives));
-    if(mLives <=0)
+    mHealth-=dmg;
+    emit(healthChanges(mHealth));
+    if(mHealth <=0)
     {
         emit(playerDead());
     }
+}
+
+int Player::getHealth()
+{
+    return mHealth;
 }
 
