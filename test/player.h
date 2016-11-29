@@ -12,27 +12,30 @@
 #include "graphicsitemfactory.h"
 #include "test/bulletprototype.h"
 #include "graphicsitemfactory.h"
+#include "test/pixmapentity.h"
 
 
 
 
-class Player : public QObject,public QGraphicsPixmapItem
+class Player : public PixmapEntity
 {
-    Q_OBJECT
+   // Q_OBJECT
 public:
-    Player(QGraphicsItem* parent=0);
+    Player(int health=3);
     void keyPressEvent(QKeyEvent* event);
-    void shoot();
+    inline QPointF center();
+
     ~Player();
 
-public slots:
+public:// slots:
     void hit(int dmg=1);
     int getHealth();
-signals:
-    void playerDead();
-    void healthChanges(int);
+    void attack();
+//signals:
+
 
 private:
+    QPointF mCenter;
 
 
     QSound* sound;
@@ -45,7 +48,9 @@ private:
     GraphicsItemFactory* mPhazer;
     BulletPrototype* mBasicBullet;
 
-    int mHealth;
+    void calculateCenter();
+
+
 
 };
 

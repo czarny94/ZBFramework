@@ -3,7 +3,8 @@
 #include "bullet.h"
 #include "enemy.h"
 #include <QImage>
-Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent),mHealth(3)
+#include <QRectF>
+Player::Player(int health):PixmapEntity(3)
 {
     sound=new QSound(":/music/test/res/phaser.wav");
 
@@ -27,14 +28,18 @@ Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent),mHealth(3)
     //setScale(0.5);
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
-    setTransformOriginPoint(50,50);
+    //setTransformOriginPoint(center());
     //setRotation(90);
 
-    mBasicBullet=new BulletPrototype(this);
-    mPhazer=new GraphicsItemFactory(mBasicBullet,this);
 
+    mBasicBullet=new BulletPrototype(/*this*/);
+    mPhazer=new GraphicsItemFactory(mBasicBullet/*,this*/);
+
+
+    calculateCenter();
     QRectF bRect= boundingRect();
     qreal width= bRect.width();
+
     mTopCenter=width/2;
 
 
@@ -49,6 +54,7 @@ void Player::keyPressEvent(QKeyEvent *event)
    {
         if(x()+100<800)
         setPos(x()+10,y());
+        qDebug()<<"right";
    }
    else if(event->key()== Qt::Key_Left)
    {
@@ -62,18 +68,26 @@ void Player::keyPressEvent(QKeyEvent *event)
             setPos(x(),y()+10);
     if (event->key()==Qt::Key_Space)
    {
-          shoot();
+        qDebug()<<"shoot";
+        attack();
 
     }
 
 }
 
-void Player::shoot()
+QPointF Player::center()
+{
+    return mCenter;
+}
+
+void Player::attack()
 {
     QGraphicsItem* bullet=mPhazer->create();
 
     qreal bb=bullet->boundingRect().width()/2;
+
     bullet->setPos(x()+mTopCenter-bb,y());
+
     scene()->addItem(bullet);
 
     sound->play();
@@ -88,15 +102,21 @@ Player::~Player()
 void Player::hit(int dmg)
 {
     mHealth-=dmg;
-    emit(healthChanges(mHealth));
+    //emit(healthChanges(mHealth));
     if(mHealth <=0)
     {
-        emit(playerDead());
+       // emit(entityDead());
     }
 }
 
 int Player::getHealth()
 {
     return mHealth;
+}
+
+void Player::calculateCenter()
+{
+     QRectF rect=boundingRect();
+     mCenter=rect.center();
 }
 
