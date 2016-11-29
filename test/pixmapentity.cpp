@@ -4,3 +4,9 @@ PixmapEntity::PixmapEntity()
 {
 
 }
+PixmapEntity::PixmapEntity(int health):mHealth(health)
+{
+
+}
+
+
