@@ -2,7 +2,7 @@
 #define PLAYERSTATEMACHINE_H
 #include <QStateMachine>
 
-#include "test/player.h"
+#include "test/player/player.h"
 
 class PlayerStateMachine : public QStateMachine
 {

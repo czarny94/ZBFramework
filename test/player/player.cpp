@@ -1,7 +1,7 @@
 #include "player.h"
 #include <QDebug>
-#include "bullet.h"
-#include "enemy.h"
+#include "test/bullet.h"
+#include "test/enemy.h"
 #include <QImage>
 #include <QRectF>
 Player::Player(int health):PixmapEntity(3)

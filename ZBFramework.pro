@@ -28,15 +28,15 @@ SOURCES += \
     test/gamegui.cpp \
     test/gameover.cpp \
     test/health.cpp \
-    test/inputplayer.cpp \
     test/level.cpp \
     test/mainmenu.cpp \
     test/pixmapentity.cpp \
-    test/player.cpp \
-    test/playerstate.cpp \
-    test/playerstatemachine.cpp \
     test/score.cpp \
-    main.cpp
+    main.cpp \
+    test/player/inputplayer.cpp \
+    test/player/player.cpp \
+    test/player/playerstate.cpp \
+    test/player/playerstatemachine.cpp
 
 HEADERS  += \
     core/agamestate.h \
@@ -55,14 +55,14 @@ HEADERS  += \
     test/gamegui.h \
     test/gameover.h \
     test/health.h \
-    test/inputplayer.h \
     test/level.h \
     test/mainmenu.h \
     test/pixmapentity.h \
-    test/player.h \
-    test/playerstate.h \
-    test/playerstatemachine.h \
-    test/score.h
+    test/score.h \
+    test/player/inputplayer.h \
+    test/player/player.h \
+    test/player/playerstate.h \
+    test/player/playerstatemachine.h
 
 FORMS +=
 

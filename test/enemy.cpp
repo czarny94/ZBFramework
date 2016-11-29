@@ -8,7 +8,7 @@
 
 
 #include <QDebug>
-#include "test/player.h"
+#include "test/player/player.h"
 
 
 Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),sheet(texture)

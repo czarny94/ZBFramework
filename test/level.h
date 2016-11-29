@@ -1,7 +1,7 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 #include "core/agamestate.h"
-#include "test/player.h"
+#include "test/player/player.h"
 #include "test/score.h"
 #include "test/health.h"
 
