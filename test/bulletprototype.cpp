@@ -1,5 +1,5 @@
-#include "bulletprototype.h"
-#include "texturemanager.h"
+#include "test/bulletprototype.h"
+#include "core/texturemanager.h"
 #include <QDebug>
 
 BulletPrototype::BulletPrototype(QObject* parent):APrototype(parent)

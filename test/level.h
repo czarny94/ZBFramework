@@ -1,9 +1,9 @@
 #ifndef LEVEL_H
 #define LEVEL_H
-#include "agamestate.h"
-#include "player.h"
-#include "score.h"
-#include "health.h"
+#include "core/agamestate.h"
+#include "test/player.h"
+#include "test/score.h"
+#include "test/health.h"
 
 #include <QGraphicsRectItem>
 #include <QGraphicsView>

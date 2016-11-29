@@ -8,10 +8,10 @@
 #include <QSound>
 #include <memory>
 
-#include "texturemanager.h"
-#include "graphicsitemfactory.h"
+#include "core/texturemanager.h"
+#include "core/graphicsitemfactory.h"
 #include "test/bulletprototype.h"
-#include "graphicsitemfactory.h"
+#include "core/graphicsitemfactory.h"
 #include "test/pixmapentity.h"
 
 
@@ -20,6 +20,7 @@
 class Player : public PixmapEntity
 {
    // Q_OBJECT
+    friend class PlayerState;
 public:
     Player(int health=3);
     void keyPressEvent(QKeyEvent* event);

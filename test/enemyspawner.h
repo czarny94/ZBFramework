@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QTimer>
 
-#include "graphicsitemfactory.h"
+#include "core/graphicsitemfactory.h"
 
 class EnemySpawner : public GraphicsItemFactory
 {

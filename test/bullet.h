@@ -7,7 +7,7 @@
 #include <QSound>
 #include <QPixmap>
 
-#include "texturemanager.h"
+#include "core/texturemanager.h"
 class Bullet:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT

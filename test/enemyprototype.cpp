@@ -1,5 +1,5 @@
-#include "enemyprototype.h"
-#include "texturemanager.h"
+#include "test/enemyprototype.h"
+#include "core/texturemanager.h"
 #include <QDebug>
 
 EnemyPrototype::EnemyPrototype(QObject *parent) : APrototype(parent)

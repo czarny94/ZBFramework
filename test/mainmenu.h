@@ -1,6 +1,6 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
-#include "agamestate.h"
+#include "core/agamestate.h"
 #include <QPushButton>
 #include <QHash>
 #include <QString>

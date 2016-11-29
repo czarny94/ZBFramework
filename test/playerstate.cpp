@@ -1,6 +1,16 @@
 #include "playerstate.h"
 
-PlayerState::PlayerState()
+void PlayerState::shoot()
+{
+
+}
+
+void PlayerState::stopMoving()
+{
+
+}
+
+PlayerState::PlayerState():QState()
 {
 
 }

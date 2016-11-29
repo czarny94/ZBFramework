@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <memory>
-#include "aprototype.h"
+#include "core/aprototype.h"
 #include "test/enemy.h"
 class EnemyPrototype : public APrototype
 {

@@ -6,7 +6,7 @@
 #include <QSound>
 #include <QGraphicsItem>
 
-#include "aprototype.h"
+#include "core/aprototype.h"
 #include "test/bullet.h"
 
 class BulletPrototype : public APrototype
