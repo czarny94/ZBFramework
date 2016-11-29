@@ -1,0 +1,1 @@
+do uruchomienia gry nalezy przeniesc folder /res/ do folderu z plikiem EXE. 
