@@ -15,7 +15,7 @@ Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),
 {
 
 
-    qDebug()<<"kon enemy";
+
 
     width=sheet->width();
     fWidth=width/frame;
@@ -30,7 +30,7 @@ Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),
     mSound=new QSound(":/music/test/res/boom.wav");
 
 
-    qDebug()<<"kon2 enemy";
+
 }
 
 Enemy::~Enemy()

@@ -38,7 +38,7 @@ void Bullet::move()
             scene()->removeItem(this);
 
 
-            delete obj;
+            dynamic_cast<Enemy*>(obj)->deleteLater() ;
             delete this;
             return;
         }

@@ -1,5 +1,6 @@
 #include "level.h"
 #include "test/mainmenu.h"
+#include "test/gameover.h"
 #include <QDebug>
 #include <QTimer>
 #include <QMediaPlaylist>
@@ -32,8 +33,8 @@ Level::Level():AGameState("Level")
 
     mCamera->setScene(mScene);
 
-    connect(mPlayer,SIGNAL(playerDead()),this,SLOT(gameOver()));
-    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
+//    connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
+//    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
 
     qDebug()<<"kon level";
 }
@@ -61,7 +62,7 @@ void Level::play()
 {
     qDebug()<<"play level state";
 
-    mCamera->show();
+    //mCamera->show();
     mSpawnTimer->start(1000);
 
     qDebug()<<"end play level state";
@@ -96,7 +97,7 @@ bool Level::createScene()
 
 bool Level::createView()
 {
-    mCamera=new QGraphicsView();
+    mCamera=new QGraphicsView(this);
     mCamera->setScene(mScene);
 
     mCamera->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -115,7 +116,7 @@ bool Level::createMediaPlayer()
 
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
     playlist->addMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath()+"/res/Subjected_rancor.mp3")); //Ultraviolence - Psycho Drama - 05 - Psycho Drama.mp3 Subjected_rancor.mp3
-
+//
     mediaPlayer->setPlaylist(playlist);
     mediaPlayer->setVolume(50);
 
@@ -134,7 +135,7 @@ bool Level::createSpawner()
 
 void Level::spawnEnemy()
 {
-    qDebug()<<"spawn start";
+
        QGraphicsItem* enemy=mSpawner->create();
        int randomNumber=rand() %700;
        enemy->setPos(randomNumber,0);

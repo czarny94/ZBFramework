@@ -14,7 +14,7 @@ MainMenu::MainMenu():AGameState("MainMenu")
     //setBaseSize(800,600);
     mScene=new QGraphicsScene(this);
 
-    mCamera=new QGraphicsView(mScene);
+    mCamera=new QGraphicsView(mScene,this);
 
 
 
