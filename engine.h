@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include <QObject>
+#include <QgraphicsView>
 #include "gamestatemanager.h"
 
 
@@ -19,6 +20,7 @@ public slots:
 protected:
     GameStateManager* mStateManager;
     AGameState* mCurrentState;
+    QGraphicsView* mView;
 
 
 };

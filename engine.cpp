@@ -21,8 +21,10 @@ void Engine::play()
 {
 
     if(mCurrentState)
-
+    {
+        mCurrentState->show();
         mCurrentState->play();
+    }
     else return;
 }
 

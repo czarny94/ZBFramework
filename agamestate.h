@@ -21,7 +21,8 @@ public:
     virtual void play()=0;
 
     QString getStateId(){return mStateID;}
-
+    QGraphicsView* getView(){return mCamera;}
+    //void setView(QGraphicsView* view)=0;
     virtual ~AGameState();
 protected:
     QGraphicsView* mCamera;
