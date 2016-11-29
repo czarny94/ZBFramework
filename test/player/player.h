@@ -13,18 +13,24 @@
 #include "test/bulletprototype.h"
 #include "core/graphicsitemfactory.h"
 #include "test/pixmapentity.h"
-
-
-
+#include "test/player/playerstatemachine.h"
 
 class Player : public PixmapEntity
 {
    // Q_OBJECT
-    friend class PlayerState;
+
+
 public:
+    enum Texture{
+        STATIC,
+        LEFT,
+        RIGHT
+    };
     Player(int health=3);
     void keyPressEvent(QKeyEvent* event);
+    void keyReleaseEvent(QKeyEvent* event);
     inline QPointF center();
+    void setTexture(Texture tex);
 
     ~Player();
 
@@ -35,7 +41,7 @@ public:// slots:
 //signals:
 
 
-private:
+protected:
     QPointF mCenter;
 
 
@@ -49,6 +55,7 @@ private:
     GraphicsItemFactory* mPhazer;
     BulletPrototype* mBasicBullet;
 
+    PlayerStateMachine* mStateMachine;
     void calculateCenter();
 
 

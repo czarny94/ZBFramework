@@ -2,10 +2,27 @@
 #define MOVEDLEFT_H
 
 
-class MovedLeft : public PlayerState
+#include "test/player/playerstate.h"
+
+//class Player;
+
+
+class MovedLeft: public PlayerState
 {
+    Q_OBJECT
 public:
-    MovedLeft();
+    MovedLeft(Player* player, QState *parent =nullptr);
+
+public slots:
+    virtual void moveLeft();
+    virtual void moveRight();
+    void move();
+
+
+protected slots:
+    void setTexture() ;
+private:
+
 };
 
 #endif // MOVEDLEFT_H

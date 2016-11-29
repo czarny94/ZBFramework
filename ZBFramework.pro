@@ -36,7 +36,10 @@ SOURCES += \
     test/player/inputplayer.cpp \
     test/player/player.cpp \
     test/player/playerstate.cpp \
-    test/player/playerstatemachine.cpp
+    test/player/playerstatemachine.cpp \
+    test/player/movedleft.cpp \
+    test/player/movedright.cpp \
+    test/player/staticstate.cpp
 
 HEADERS  += \
     core/agamestate.h \
@@ -62,7 +65,10 @@ HEADERS  += \
     test/player/inputplayer.h \
     test/player/player.h \
     test/player/playerstate.h \
-    test/player/playerstatemachine.h
+    test/player/playerstatemachine.h \
+    test/player/movedleft.h \
+    test/player/movedright.h \
+    test/player/staticstate.h
 
 FORMS +=
 

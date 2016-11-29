@@ -6,6 +6,9 @@
 #include <QMediaPlaylist>
 #include <QCoreApplication>
 
+#include "test/player/inputplayer.h"
+#include "test/player/movedleft.h"
+
 Level::Level():AGameState("Level")
 {
     qDebug()<<"start kon level";
@@ -35,6 +38,9 @@ Level::Level():AGameState("Level")
 
 //    connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
 //    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
+
+
+
 
     qDebug()<<"kon level";
 }

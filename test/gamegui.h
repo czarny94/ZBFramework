@@ -20,6 +20,6 @@ public slots:
 private:
     Score* mScore;
     Health* mHealth;
-};
+ };
 
 #endif // GAMEGUI_H
