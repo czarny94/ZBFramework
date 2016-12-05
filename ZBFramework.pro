@@ -76,3 +76,5 @@ DISTFILES +=
 
 RESOURCES += \
     space.qrc
+
+CONFIG += c++11
