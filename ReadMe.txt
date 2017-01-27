@@ -1,4 +1,4 @@
-do uruchomienia gry nalezy przeniesc folder /res/ do folderu z plikiem EXE. 
+﻿do uruchomienia gry nalezy przeniesc folder /res/ do folderu z plikiem EXE. 
 
 AGameState: public QWidget
 
@@ -30,7 +30,7 @@ changeState(AGameState*)  podmienia aktualnie używany stan na stan podany w par
 Manager automatycznie łączy sloty z sygnałami stanów. Manager zwalnia pamięć po stanach. Za tworzenie stanów odpowiedzialne są inne stany i przesyłane są do Managera za pomocą sygnałów,
 
 
-TextureManager
+SpriteManager
 
 Klasa ta jest singletonem czyli czymś w rodzaju obiektu globalnego.
 Dostęp do niej zyskujemy dzięki statycznej funkcji getInstance().
