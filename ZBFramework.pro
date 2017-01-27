@@ -18,7 +18,6 @@ SOURCES += \
     core/gamestatemanager.cpp \
     core/graphicsitemfactory.cpp \
     core/resourcemanager.cpp \
-    core/texturemanager.cpp \
     core/vector2d.cpp \
     test/bullet.cpp \
     test/bulletprototype.cpp \
@@ -39,7 +38,8 @@ SOURCES += \
     test/player/playerstatemachine.cpp \
     test/player/movedleft.cpp \
     test/player/movedright.cpp \
-    test/player/staticstate.cpp
+    test/player/staticstate.cpp \
+    core/spritemanager.cpp
 
 HEADERS  += \
     core/agamestate.h \
@@ -48,7 +48,6 @@ HEADERS  += \
     core/gamestatemanager.h \
     core/graphicsitemfactory.h \
     core/resourcemanager.h \
-    core/texturemanager.h \
     core/vector2d.h \
     test/bullet.h \
     test/bulletprototype.h \
@@ -68,7 +67,8 @@ HEADERS  += \
     test/player/playerstatemachine.h \
     test/player/movedleft.h \
     test/player/movedright.h \
-    test/player/staticstate.h
+    test/player/staticstate.h \
+    core/spritemanager.h
 
 FORMS +=
 
