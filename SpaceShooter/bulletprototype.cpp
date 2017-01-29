@@ -1,4 +1,4 @@
-#include "test/bulletprototype.h"
+#include "SpaceShooter/bulletprototype.h"
 #include "core/spritemanager.h"
 #include <QDebug>
 
@@ -17,7 +17,7 @@ BulletPrototype::BulletPrototype(QObject* parent):APrototype(parent)
         qDebug()<<error;
     }
 
-    mSound=new QSound(":/music/test/res/boom.wav");
+    mSound=new QSound(":/sfx/res/boom.wav");
 }
 
 QGraphicsItem *BulletPrototype::clone()

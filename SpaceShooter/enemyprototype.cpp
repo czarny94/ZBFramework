@@ -1,4 +1,4 @@
-#include "test/enemyprototype.h"
+#include "SpaceShooter/enemyprototype.h"
 #include "core/spritemanager.h"
 #include <QDebug>
 

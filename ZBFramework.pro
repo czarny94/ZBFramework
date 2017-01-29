@@ -19,27 +19,28 @@ SOURCES += \
     core/graphicsitemfactory.cpp \
     core/resourcemanager.cpp \
     core/vector2d.cpp \
-    test/bullet.cpp \
-    test/bulletprototype.cpp \
-    test/enemy.cpp \
-    test/enemyprototype.cpp \
-    test/enemyspawner.cpp \
-    test/gamegui.cpp \
-    test/gameover.cpp \
-    test/health.cpp \
-    test/level.cpp \
-    test/mainmenu.cpp \
-    test/pixmapentity.cpp \
-    test/score.cpp \
     main.cpp \
-    test/player/inputplayer.cpp \
-    test/player/player.cpp \
-    test/player/playerstate.cpp \
-    test/player/playerstatemachine.cpp \
-    test/player/movedleft.cpp \
-    test/player/movedright.cpp \
-    test/player/staticstate.cpp \
-    core/spritemanager.cpp
+    core/spritemanager.cpp \
+    SpaceShooter/player/inputplayer.cpp \
+    SpaceShooter/player/movedleft.cpp \
+    SpaceShooter/player/movedright.cpp \
+    SpaceShooter/player/player.cpp \
+    SpaceShooter/player/playerstate.cpp \
+    SpaceShooter/player/playerstatemachine.cpp \
+    SpaceShooter/player/staticstate.cpp \
+    SpaceShooter/bullet.cpp \
+    SpaceShooter/bulletprototype.cpp \
+    SpaceShooter/enemy.cpp \
+    SpaceShooter/enemyprototype.cpp \
+    SpaceShooter/enemyspawner.cpp \
+    SpaceShooter/gamegui.cpp \
+    SpaceShooter/gameover.cpp \
+    SpaceShooter/health.cpp \
+    SpaceShooter/level.cpp \
+    SpaceShooter/mainmenu.cpp \
+    SpaceShooter/pixmapentity.cpp \
+    SpaceShooter/score.cpp \
+    test/pausemenu.cpp
 
 HEADERS  += \
     core/agamestate.h \
@@ -49,26 +50,27 @@ HEADERS  += \
     core/graphicsitemfactory.h \
     core/resourcemanager.h \
     core/vector2d.h \
-    test/bullet.h \
-    test/bulletprototype.h \
-    test/enemy.h \
-    test/enemyprototype.h \
-    test/enemyspawner.h \
-    test/gamegui.h \
-    test/gameover.h \
-    test/health.h \
-    test/level.h \
-    test/mainmenu.h \
-    test/pixmapentity.h \
-    test/score.h \
-    test/player/inputplayer.h \
-    test/player/player.h \
-    test/player/playerstate.h \
-    test/player/playerstatemachine.h \
-    test/player/movedleft.h \
-    test/player/movedright.h \
-    test/player/staticstate.h \
-    core/spritemanager.h
+    core/spritemanager.h \
+    SpaceShooter/player/inputplayer.h \
+    SpaceShooter/player/movedleft.h \
+    SpaceShooter/player/movedright.h \
+    SpaceShooter/player/player.h \
+    SpaceShooter/player/playerstate.h \
+    SpaceShooter/player/playerstatemachine.h \
+    SpaceShooter/player/staticstate.h \
+    SpaceShooter/bullet.h \
+    SpaceShooter/bulletprototype.h \
+    SpaceShooter/enemy.h \
+    SpaceShooter/enemyprototype.h \
+    SpaceShooter/enemyspawner.h \
+    SpaceShooter/gamegui.h \
+    SpaceShooter/gameover.h \
+    SpaceShooter/health.h \
+    SpaceShooter/level.h \
+    SpaceShooter/mainmenu.h \
+    SpaceShooter/pixmapentity.h \
+    SpaceShooter/score.h \
+    test/pausemenu.h
 
 FORMS +=
 

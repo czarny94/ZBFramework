@@ -5,7 +5,7 @@
 #include <QGraphicsItem>
 #include <memory>
 #include "core/aprototype.h"
-#include "test/enemy.h"
+#include "SpaceShooter/enemy.h"
 class EnemyPrototype : public APrototype
 {
     Q_OBJECT

@@ -10,10 +10,10 @@
 
 #include "core/spritemanager.h"
 #include "core/graphicsitemfactory.h"
-#include "test/bulletprototype.h"
+#include "SpaceShooter/bulletprototype.h"
 #include "core/graphicsitemfactory.h"
-#include "test/pixmapentity.h"
-#include "test/player/playerstatemachine.h"
+#include "SpaceShooter/pixmapentity.h"
+#include "SpaceShooter/player/playerstatemachine.h"
 
 class Player : public PixmapEntity
 {

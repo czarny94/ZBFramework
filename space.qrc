@@ -1,13 +1,10 @@
 <RCC>
     <qresource prefix="/img">
-        <file>test/res/boss1.png</file>
-        <file>test/res/bullet1.png</file>
-        <file>test/res/cosmos.jpg</file>
-        <file>test/res/enemy3.png</file>
-        <file>test/res/spacecity.jpg</file>
+        <file>res/cosmos.jpg</file>
+        <file>res/spacecity.jpg</file>
     </qresource>
-    <qresource prefix="/music">
-        <file>test/res/boom.wav</file>
-        <file>test/res/phaser.wav</file>
+    <qresource prefix="/sfx">
+        <file>res/boom.wav</file>
+        <file>res/phaser.wav</file>
     </qresource>
 </RCC>

@@ -1,6 +1,6 @@
-#include "test/gameover.h"
+#include "SpaceShooter/gameover.h"
 #include "core/spritemanager.h"
-#include "test/mainmenu.h"
+#include "SpaceShooter/mainmenu.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QTimer>

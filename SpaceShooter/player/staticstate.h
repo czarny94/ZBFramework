@@ -1,7 +1,7 @@
 #ifndef STATICSTATE_H
 #define STATICSTATE_H
 
-#include "test/player/playerstate.h"
+#include "SpaceShooter/player/playerstate.h"
 
 class StaticState : public PlayerState
 {

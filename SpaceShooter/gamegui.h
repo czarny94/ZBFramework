@@ -3,8 +3,8 @@
 
 #include <QObject>
 #include <QGraphicsObject>
-#include "test/health.h"
-#include "test/score.h"
+#include "SpaceShooter/health.h"
+#include "SpaceShooter/score.h"
 
 class GameGUI :public QObject, public QGraphicsItem
 {

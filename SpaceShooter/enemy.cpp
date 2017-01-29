@@ -8,7 +8,7 @@
 
 
 #include <QDebug>
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 
 
 Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),mSprite(texture)
@@ -27,7 +27,7 @@ Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),
     timer->start(10);
     animTimer->start(100);
 
-    mSound=new QSound(":/music/test/res/boom.wav");
+    mSound=new QSound(":/sfx/res/boom.wav");
 
 
 

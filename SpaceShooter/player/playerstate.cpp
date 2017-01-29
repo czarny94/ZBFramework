@@ -1,5 +1,5 @@
 #include "playerstate.h"
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 #include <QDebug>
 
 PlayerState::PlayerState(Player* player,QState *parent):QState(parent),mPlayer(player)

@@ -1,13 +1,13 @@
 #include "level.h"
-#include "test/mainmenu.h"
-#include "test/gameover.h"
+#include "SpaceShooter/mainmenu.h"
+#include "SpaceShooter/gameover.h"
 #include <QDebug>
 #include <QTimer>
 #include <QMediaPlaylist>
 #include <QCoreApplication>
 
-#include "test/player/inputplayer.h"
-#include "test/player/movedleft.h"
+#include "SpaceShooter/player/inputplayer.h"
+#include "SpaceShooter/player/movedleft.h"
 //TODO: zwalnianie aktorow, moze kolejny kontener dla nich ?
 
 Level::Level():AGameState("Level")
@@ -95,7 +95,7 @@ bool Level::createScene()
 {
      mScene=new QGraphicsScene();
 
-     QImage image(":/img/test/res/cosmos.jpg");
+     QImage image(":/img/res/cosmos.jpg");
      mScene->setBackgroundBrush(QBrush(image));
 
      return true;

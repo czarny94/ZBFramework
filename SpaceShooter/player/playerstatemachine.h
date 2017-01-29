@@ -1,7 +1,7 @@
 #ifndef PLAYERSTATEMACHINE_H
 #define PLAYERSTATEMACHINE_H
 #include <QStateMachine>
-#include "test/player/playerstate.h"
+#include "SpaceShooter/player/playerstate.h"
 
 class Player;
 class PlayerStateMachine : public QStateMachine

@@ -1,5 +1,5 @@
 #include "movedleft.h"
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 
 MovedLeft::MovedLeft(Player* player,QState *parent ):PlayerState(player,parent)
 {

@@ -1,5 +1,5 @@
 #include "staticstate.h"
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 
 StaticState::StaticState(Player *player, QState *parent):PlayerState(player,parent)
 {

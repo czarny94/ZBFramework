@@ -1,12 +1,12 @@
 #include "player.h"
 #include <QDebug>
-#include "test/bullet.h"
-#include "test/enemy.h"
+#include "SpaceShooter/bullet.h"
+#include "SpaceShooter/enemy.h"
 #include <QImage>
 #include <QRectF>
 Player::Player(int health):PixmapEntity(3)
 {
-    sound=new QSound(":/music/test/res/phaser.wav");
+    sound=new QSound(":/sfx/res/phaser.wav");
 
     SpriteManager* texManag= SpriteManager::getInstance();
     QString error;

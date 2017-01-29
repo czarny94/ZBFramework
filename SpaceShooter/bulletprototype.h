@@ -7,7 +7,7 @@
 #include <QGraphicsItem>
 
 #include "core/aprototype.h"
-#include "test/bullet.h"
+#include "SpaceShooter/bullet.h"
 
 class BulletPrototype : public APrototype
 {
