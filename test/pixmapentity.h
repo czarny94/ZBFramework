@@ -17,7 +17,6 @@ public ://slots:
     
     virtual void attack()=0;
 
-
 protected:
     int mHealth;
 //signals:

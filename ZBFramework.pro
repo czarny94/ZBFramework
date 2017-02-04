@@ -39,7 +39,8 @@ SOURCES += \
     test/player/playerstatemachine.cpp \
     test/player/movedleft.cpp \
     test/player/movedright.cpp \
-    test/player/staticstate.cpp
+    test/player/staticstate.cpp \
+    test/pausemenu.cpp
 
 HEADERS  += \
     core/agamestate.h \
@@ -68,7 +69,8 @@ HEADERS  += \
     test/player/playerstatemachine.h \
     test/player/movedleft.h \
     test/player/movedright.h \
-    test/player/staticstate.h
+    test/player/staticstate.h \
+    test/pausemenu.h
 
 FORMS +=
 
