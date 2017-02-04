@@ -5,7 +5,7 @@
 #include <QGraphicsItem>
 #include <memory>
 #include "core/aprototype.h"
-#include "test/enemy.h"
+#include "SpaceShooter/enemy.h"
 class EnemyPrototype : public APrototype
 {
     Q_OBJECT
@@ -17,7 +17,7 @@ signals:
 public slots:
     Enemy* clone() override;
 private:
-    std::shared_ptr<QPixmap> mTexture;
+    std::shared_ptr<QPixmap> mSprite;
 };
 
 #endif // ENEMYPROTOTYPE_H

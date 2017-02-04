@@ -1,22 +1,22 @@
-#include "texturemanager.h"
+#include "spritemanager.h"
 #include <QDebug>
 #include <QCoreApplication>
 
-TextureManager* TextureManager::mInstance=nullptr;
+SpriteManager* SpriteManager::mInstance=nullptr;
 
-TextureManager *TextureManager::getInstance()
+SpriteManager *SpriteManager::getInstance()
 {
     if(!mInstance)
     {
-        mInstance=new TextureManager();
+        mInstance=new SpriteManager();
     }
     return mInstance;
 }
 
-std::shared_ptr<QPixmap> TextureManager::getTexture(QString fileName)
+std::shared_ptr<QPixmap> SpriteManager::getSprite(QString fileName)
 {
-    auto check=mTextures.find(fileName);
-    if(check==mTextures.end())
+    auto check=mSpritess.find(fileName);
+    if(check==mSpritess.end())
     {
         return nullptr;
     }
@@ -26,10 +26,10 @@ std::shared_ptr<QPixmap> TextureManager::getTexture(QString fileName)
     }
 }
 
-std::shared_ptr<QPixmap> TextureManager::loadTexture(QString fileName,const char *format , Qt::ImageConversionFlags flags)
+std::shared_ptr<QPixmap> SpriteManager::loadSprite(QString fileName,const char *format , Qt::ImageConversionFlags flags)
 {
-    auto check=mTextures.find(fileName);
-    if(check!=mTextures.end())
+    auto check=mSpritess.find(fileName);
+    if(check!=mSpritess.end())
     {
         qDebug()<<fileName<<"textura juz załadowana";
         return check->second;
@@ -52,7 +52,7 @@ std::shared_ptr<QPixmap> TextureManager::loadTexture(QString fileName,const char
         std::shared_ptr<QPixmap> tempPtr(texture);
 
         auto tempPair=std::make_pair(fileName,tempPtr);
-        mTextures.insert(tempPair);
+        mSpritess.insert(tempPair);
 
         return tempPair.second;
     }
@@ -80,32 +80,32 @@ std::shared_ptr<QPixmap> TextureManager::loadTexture(QString fileName,const char
 
 //}
 
-void TextureManager::deleteTexture(QString fileName)
+void SpriteManager::deleteTexture(QString fileName)
 {
-    auto texture=mTextures.find(fileName);
-    if(texture!=mTextures.end())
+    auto texture=mSpritess.find(fileName);
+    if(texture!=mSpritess.end())
     {
        if( texture->second.unique())
-           mTextures.erase(fileName);
+           mSpritess.erase(fileName);
     }
 }
 
-void TextureManager::deleteAll()
+void SpriteManager::deleteAll()
 {
-    for(std::map<QString,std::shared_ptr<QPixmap>>::iterator obj=mTextures.begin();obj!=mTextures.end();++obj)
+    for(std::map<QString,std::shared_ptr<QPixmap>>::iterator obj=mSpritess.begin();obj!=mSpritess.end();++obj)
     {
         if( obj->second.unique())
-            mTextures.erase(obj);
+            mSpritess.erase(obj);
     }
 
 }
 
-TextureManager::~TextureManager()
+SpriteManager::~SpriteManager()
 {
-    mTextures.clear();
+    mSpritess.clear();
 }
 
-TextureManager::TextureManager()
+SpriteManager::SpriteManager()
 {
 
 }

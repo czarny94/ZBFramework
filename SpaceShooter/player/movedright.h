@@ -1,6 +1,6 @@
 #ifndef MOVEDRIGHT_H
 #define MOVEDRIGHT_H
-#include "test/player/playerstate.h"
+#include "SpaceShooter/player/playerstate.h"
 
 class MovedRight : public PlayerState
 {
@@ -14,7 +14,7 @@ public slots:
     void move();
 
 protected slots:
-    void setTexture() ;
+    void setSprite() ;
 private:
     QTimer* mTimer;
 

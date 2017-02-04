@@ -21,7 +21,7 @@ public slots:
 
 
 protected slots:
-    virtual void setTexture()=0;
+    virtual void setSprite()=0;
 
 
 protected:

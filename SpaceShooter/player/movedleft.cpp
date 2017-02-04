@@ -1,9 +1,9 @@
 #include "movedleft.h"
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 
 MovedLeft::MovedLeft(Player* player,QState *parent ):PlayerState(player,parent)
 {
-    connect(this,SIGNAL(entered()),this,SLOT(setTexture()));
+    connect(this,SIGNAL(entered()),this,SLOT(setSprite()));
     mTimer=new QTimer(this);
     mTimer->setInterval(25);
     connect(mTimer,SIGNAL(timeout()),this,SLOT(move()));
@@ -29,8 +29,8 @@ void MovedLeft::moveLeft()
 
 }
 
-void MovedLeft::setTexture()
+void MovedLeft::setSprite()
 {
-    mPlayer->setTexture(Player::Texture::LEFT);
+    mPlayer->setTexture(Player::SPRITE::LEFT);
 }
 

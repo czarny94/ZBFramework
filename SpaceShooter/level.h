@@ -1,18 +1,18 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 #include "core/agamestate.h"
-#include "test/player/player.h"
-#include "test/score.h"
-#include "test/health.h"
+#include "SpaceShooter/player/player.h"
+#include "SpaceShooter/score.h"
+#include "SpaceShooter/health.h"
 
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
 #include <QMediaPlayer>
 #include <QKeyEvent>
 
-#include "test/enemyspawner.h"
-#include "test/enemyprototype.h"
-#include "test/gamegui.h"
+#include "SpaceShooter/enemyspawner.h"
+#include "SpaceShooter/enemyprototype.h"
+#include "SpaceShooter/gamegui.h"
 
 
 class Level:public AGameState

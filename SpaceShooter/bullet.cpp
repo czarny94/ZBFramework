@@ -9,16 +9,16 @@
 
 Bullet::Bullet(QGraphicsItem* parent):QGraphicsPixmapItem(parent)
 {
-    setPixmap(*mTexture);
+    setPixmap(*mSprite);
 
     QTimer* timer=new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 }
 
-Bullet::Bullet(QPixmap *texture, QSound *sound, QGraphicsItem *parent):mTexture(texture), mSound(sound),QGraphicsPixmapItem(parent)
+Bullet::Bullet(QPixmap *texture, QSound *sound, QGraphicsItem *parent):mSprite(texture), mSound(sound),QGraphicsPixmapItem(parent)
 {
-    setPixmap(*mTexture);
+    setPixmap(*mSprite);
 
     QTimer* timer=new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));

@@ -1,8 +1,8 @@
 #include "engine.h"
-#include "test/mainmenu.h"
+#include "SpaceShooter/mainmenu.h"
 #include <QDebug>
 
-#include "test/level.h"
+#include "SpaceShooter/level.h"
 
 Engine::Engine(QObject *parent)
     : QObject(parent)

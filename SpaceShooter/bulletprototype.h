@@ -7,7 +7,7 @@
 #include <QGraphicsItem>
 
 #include "core/aprototype.h"
-#include "test/bullet.h"
+#include "SpaceShooter/bullet.h"
 
 class BulletPrototype : public APrototype
 {
@@ -16,7 +16,7 @@ public:
 
     QGraphicsItem* clone() override;
 private:
-    std::shared_ptr<QPixmap> mTexture;
+    std::shared_ptr<QPixmap> mSprite;
     QSound* mSound;
 
 };

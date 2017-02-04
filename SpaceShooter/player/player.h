@@ -8,12 +8,12 @@
 #include <QSound>
 #include <memory>
 
-#include "core/texturemanager.h"
+#include "core/spritemanager.h"
 #include "core/graphicsitemfactory.h"
-#include "test/bulletprototype.h"
+#include "SpaceShooter/bulletprototype.h"
 #include "core/graphicsitemfactory.h"
-#include "test/pixmapentity.h"
-#include "test/player/playerstatemachine.h"
+#include "SpaceShooter/pixmapentity.h"
+#include "SpaceShooter/player/playerstatemachine.h"
 
 class Player : public PixmapEntity
 {
@@ -21,7 +21,7 @@ class Player : public PixmapEntity
 
 
 public:
-    enum Texture{
+    enum SPRITE{
         STATIC,
         LEFT,
         RIGHT
@@ -30,7 +30,7 @@ public:
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     inline QPointF center();
-    void setTexture(Texture tex);
+    void setTexture(SPRITE sprite);
 
     ~Player();
 
@@ -46,9 +46,9 @@ protected:
 
 
     QSound* sound;
-    std::shared_ptr<QPixmap> mTexture;
-    std::shared_ptr<QPixmap> mTextureLeft;
-    std::shared_ptr<QPixmap> mTextureRight;
+    std::shared_ptr<QPixmap> mSprite;
+    std::shared_ptr<QPixmap> mSpriteLeft;
+    std::shared_ptr<QPixmap> mSpriteRight;
 
     qreal mTopCenter;
 

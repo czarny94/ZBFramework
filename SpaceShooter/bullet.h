@@ -7,17 +7,17 @@
 #include <QSound>
 #include <QPixmap>
 
-#include "core/texturemanager.h"
+#include "core/spritemanager.h"
 class Bullet:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     Bullet(QGraphicsItem *parent=0);
-    Bullet(QPixmap* texture, QSound* sound,QGraphicsItem* parent=0 );
+    Bullet(QPixmap* sprite, QSound* sound,QGraphicsItem* parent=0 );
 public slots:
     void move();
 private:
-    QPixmap* mTexture;
+    QPixmap* mSprite;
     QSound* mSound;
 
 

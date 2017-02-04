@@ -1,10 +1,10 @@
 #include "playerstate.h"
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 #include <QDebug>
 
 PlayerState::PlayerState(Player* player,QState *parent):QState(parent),mPlayer(player)
 {
-    connect(this,SIGNAL(entered()),this,SLOT(setTexture()));
+    connect(this,SIGNAL(entered()),this,SLOT(setSprite()));
     mTimer=new QTimer(this);
 
     mTimer->start(100);

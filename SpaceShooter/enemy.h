@@ -23,7 +23,7 @@ protected:
     int width;
     int tick;
     QSound* mSound;
-    QPixmap* sheet;
+    QPixmap* mSprite;
 
     qreal fWidth;
 

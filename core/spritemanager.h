@@ -1,5 +1,5 @@
-#ifndef TEXTUREMANAGER_H
-#define TEXTUREMANAGER_H
+#ifndef SPRITEMANAGER_H
+#define SPRITEMANAGER_H
 
 #include <QObject>
 #include <QPixmap>
@@ -10,19 +10,19 @@
 /**TextureManager zarządza texturami(QPixmap)
  *posiada mape z wskaznikami wspoldzielonymi i kluczem QString
 */
-class TextureManager : public QObject
+class SpriteManager : public QObject
 {
     Q_OBJECT
 public:
   /**Zwraca wskaznik na statyczna instancje*/
-  static TextureManager* getInstance();
+  static SpriteManager* getInstance();
   /**Wczytaj texture, rzuca wyjatki QString
     *fileName sciezka do pliku
     *id klucz do mapy
     *format
     *flags */
-  std::shared_ptr<QPixmap> getTexture(QString id);
-  std::shared_ptr<QPixmap> loadTexture(QString fileName,const char *format = Q_NULLPTR, Qt::ImageConversionFlags flags = Qt::AutoColor);
+  std::shared_ptr<QPixmap> getSprite(QString id);
+  std::shared_ptr<QPixmap> loadSprite(QString fileName,const char *format = Q_NULLPTR, Qt::ImageConversionFlags flags = Qt::AutoColor);
   /**przenosi texture utworzona poza menagerem, rzuca wyjatki QString*/
  // bool insertTexture(QPixmap* texture, QString id);
   /**Usuwa pojedyncza texture jesli nie istnieja inne referencje poza ta z mapy*/
@@ -30,16 +30,16 @@ public:
   void deleteTexture(QString id);
   /**Czysci cala mape*/
   void deleteAll();
-  ~TextureManager();
+  ~SpriteManager();
 signals:
 
 public slots:
 protected:
-    std::map<QString,std::shared_ptr<QPixmap>> mTextures;
+    std::map<QString,std::shared_ptr<QPixmap>> mSpritess;
 
 private:
-    TextureManager();
-    static TextureManager* mInstance;
+    SpriteManager();
+    static SpriteManager* mInstance;
 };
 
-#endif // TEXTUREMANAGER_H
+#endif // SPRITEMANAGER_H

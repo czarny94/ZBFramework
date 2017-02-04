@@ -1,9 +1,9 @@
 #include "staticstate.h"
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 
 StaticState::StaticState(Player *player, QState *parent):PlayerState(player,parent)
 {
-    connect(this,SIGNAL(entered()),this,SLOT(setTexture()));
+    connect(this,SIGNAL(entered()),this,SLOT(setSprite()));
 }
 
 void StaticState::moveLeft()
@@ -16,7 +16,7 @@ void StaticState::moveRight()
     emit(right());
 }
 
-void StaticState::setTexture()
+void StaticState::setSprite()
 {
-    mPlayer->setTexture(Player::Texture::STATIC);
+    mPlayer->setTexture(Player::SPRITE::STATIC);
 }

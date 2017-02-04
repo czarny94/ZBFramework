@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QGraphicsItem>
-#include "core/texturemanager.h"
+#include "core/spritemanager.h"
 
 class APrototype:public QObject
  {Q_OBJECT

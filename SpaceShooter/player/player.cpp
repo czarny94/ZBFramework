@@ -1,21 +1,21 @@
 #include "player.h"
 #include <QDebug>
-#include "test/bullet.h"
-#include "test/enemy.h"
+#include "SpaceShooter/bullet.h"
+#include "SpaceShooter/enemy.h"
 #include <QImage>
 #include <QRectF>
 Player::Player(int health):PixmapEntity(3)
 {
-    sound=new QSound(":/music/test/res/phaser.wav");
+    sound=new QSound(":/sfx/res/phaser.wav");
 
-    TextureManager* texManag= TextureManager::getInstance();
+    SpriteManager* texManag= SpriteManager::getInstance();
     QString error;
 
     try
     {
-        mTextureLeft=texManag->loadTexture("res/playerLeft.png","PNG");
-         mTextureRight=texManag->loadTexture("res/playerRight.png","PNG");
-         mTexture=texManag->loadTexture("res/player.png","PNG");
+        mSpriteLeft=texManag->loadSprite("res/playerLeft.png","PNG");
+         mSpriteRight=texManag->loadSprite("res/playerRight.png","PNG");
+         mSprite=texManag->loadSprite("res/player.png","PNG");
     }
     catch(QString &error)
     {
@@ -23,7 +23,7 @@ Player::Player(int health):PixmapEntity(3)
     }
 
     mStateMachine=new PlayerStateMachine(this);
-    setPixmap(*mTexture);
+    setPixmap(*mSprite);
 
     //setScale(0.5);
     setFlag(QGraphicsItem::ItemIsFocusable);
@@ -151,18 +151,18 @@ QPointF Player::center()
     return mCenter;
 }
 
-void Player::setTexture(Player::Texture tex)
+void Player::setTexture(Player::SPRITE tex)
 {
     switch(tex)
     {
     case(RIGHT):
-        setPixmap(*mTextureRight);
+        setPixmap(*mSpriteRight);
         break;
     case(LEFT):
-        setPixmap(*mTextureLeft);
+        setPixmap(*mSpriteLeft);
         break;
     case(STATIC):
-        setPixmap(*mTexture);
+        setPixmap(*mSprite);
         break;
     default:
         break;
@@ -184,8 +184,8 @@ void Player::attack()
 
 Player::~Player()
 {
-    mTexture.reset();
-    TextureManager::getInstance()->deleteTexture("player");
+    mSprite.reset();
+    SpriteManager::getInstance()->deleteTexture("player");
 }
 
 void Player::hit(int dmg)

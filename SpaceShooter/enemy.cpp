@@ -8,18 +8,18 @@
 
 
 #include <QDebug>
-#include "test/player/player.h"
+#include "SpaceShooter/player/player.h"
 
 
-Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),sheet(texture)
+Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),mSprite(texture)
 {
 
 
 
 
-    width=sheet->width();
+    width=mSprite->width();
     fWidth=width/frame;
-    setPixmap(sheet->copy(0,0,fWidth,sheet->height()));
+    setPixmap(mSprite->copy(0,0,fWidth,mSprite->height()));
     QTimer* timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     QTimer* animTimer=new QTimer(this);
@@ -27,7 +27,7 @@ Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),
     timer->start(10);
     animTimer->start(100);
 
-    mSound=new QSound(":/music/test/res/boom.wav");
+    mSound=new QSound(":/sfx/res/boom.wav");
 
 
 
@@ -69,7 +69,7 @@ void Enemy::move()
 void Enemy::anim()
 {
     int temp=tick%frame;
-    setPixmap(sheet->copy(0+fWidth*temp,0,fWidth,sheet->height()));
+    setPixmap(mSprite->copy(0+fWidth*temp,0,fWidth,mSprite->height()));
     tick++;
 }
 
