@@ -171,7 +171,7 @@ void Player::setTexture(Player::SPRITE tex)
 
 void Player::attack()
 {
-    QGraphicsItem* bullet=mPhazer->create();
+    QGraphicsItem* bullet=mPhazer->create(1);
 
     qreal bb=bullet->boundingRect().width()/2;
 
@@ -180,6 +180,14 @@ void Player::attack()
     scene()->addItem(bullet);
 
     sound->play();
+    /*
+     * //pojawil mi sie ciekawy problem, podczas zmiany sposobu poruszania sie przeciwnikow
+     * //dla tych ktorzy ruszali sie tez w poziomie odswiezanie przy wyszukiwaniu trafien
+     * //nie do konca dzialalo, mozna dopisac do testowania, na ten moment jeszcze nie
+     * //rozwiazane
+     * rozwiązanie: zmiana w metdzie sprawdzającej kolizje czy zostały inne
+     * klasy też są brane pod uwagę
+     */
 }
 
 Player::~Player()

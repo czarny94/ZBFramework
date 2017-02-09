@@ -6,6 +6,8 @@
 #include <memory>
 #include "core/aprototype.h"
 #include "SpaceShooter/enemy.h"
+#include "SpaceShooter/enemy2.h"
+#include "SpaceShooter/enemy3.h"
 class EnemyPrototype : public APrototype
 {
     Q_OBJECT
@@ -16,6 +18,8 @@ signals:
 
 public slots:
     Enemy* clone() override;
+    Enemy2 * clone2() override ;
+    Enemy3 * clone3() override ;
 private:
     std::shared_ptr<QPixmap> mSprite;
 };

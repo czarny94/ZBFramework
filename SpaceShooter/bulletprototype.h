@@ -15,6 +15,8 @@ public:
     BulletPrototype(QObject* parent=nullptr);
 
     QGraphicsItem* clone() override;
+    QGraphicsItem* clone2() override;
+    QGraphicsItem* clone3() override;
 private:
     std::shared_ptr<QPixmap> mSprite;
     QSound* mSound;

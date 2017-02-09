@@ -24,10 +24,7 @@ public:
 
 public slots:
 
-    virtual QGraphicsItem* create(){qDebug()<<"create GItem";
-        return mPrototype->clone();
-                                    qDebug()<<"return GItem";
-                                   }
+    virtual QGraphicsItem* create(int mode);
 protected:
     APrototype* mPrototype;
 };

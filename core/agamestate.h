@@ -32,8 +32,8 @@ protected:
     QGraphicsScene* mScene;
     //Engine* mEngine;
 signals:
-   AGameState* changeState(AGameState*);
-   AGameState* pushState(AGameState*);
+    AGameState* changeState(AGameState*);
+    AGameState* pushState(AGameState*);
 
 //moze doda sie jakies sygnaly
 };

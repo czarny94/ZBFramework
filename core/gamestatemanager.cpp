@@ -77,8 +77,7 @@ GameStateManager::~GameStateManager()
 
     for(auto obj:mStates)
     {
-        delete obj;
-        //obj->deleteLater();
+        obj->deleteLater();
     }
 
     mStates.clear();

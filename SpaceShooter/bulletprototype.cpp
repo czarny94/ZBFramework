@@ -24,3 +24,12 @@ QGraphicsItem *BulletPrototype::clone()
 {
     return new Bullet(mSprite.get(),mSound);
 }
+
+QGraphicsItem *BulletPrototype::clone2()
+{
+    return new Bullet(mSprite.get(),mSound);
+}
+QGraphicsItem *BulletPrototype::clone3()
+{
+    return new Bullet(mSprite.get(),mSound);
+}

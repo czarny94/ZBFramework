@@ -19,7 +19,6 @@ class Player : public PixmapEntity
 {
    // Q_OBJECT
 
-
 public:
     enum SPRITE{
         STATIC,

@@ -40,6 +40,9 @@ SOURCES += \
     SpaceShooter/mainmenu.cpp \
     SpaceShooter/pixmapentity.cpp \
     SpaceShooter/score.cpp \
+    SpaceShooter/level2.cpp \
+    SpaceShooter/enemy2.cpp \
+    SpaceShooter/enemy3.cpp \
     SpaceShooter/pausemenu.cpp
 
 HEADERS  += \
@@ -70,6 +73,9 @@ HEADERS  += \
     SpaceShooter/mainmenu.h \
     SpaceShooter/pixmapentity.h \
     SpaceShooter/score.h \
+    SpaceShooter/level2.h \
+    SpaceShooter/enemy2.h \
+    SpaceShooter/enemy3.h \
     SpaceShooter/pausemenu.h
 
 FORMS +=
@@ -80,3 +86,4 @@ RESOURCES += \
     space.qrc
 
 CONFIG += c++11
+

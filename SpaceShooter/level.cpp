@@ -79,14 +79,9 @@ void Level::play()
 
 Level::~Level()
 {
-
+    mScene->deleteLater();
     mCamera->deleteLater();
     mSpawner->deleteLater();
-    //narazie usuwa wszystkie itemy, i tak nie mamy wiecej poziomow
-    for(auto item:mScene->items()){
-        delete item;
-    }
-    mScene->deleteLater();
     qDebug()<<"destr level";
 }
 
@@ -148,7 +143,7 @@ bool Level::createSpawner()
 void Level::spawnEnemy()
 {
 
-       QGraphicsItem* enemy=mSpawner->create();
+       QGraphicsItem* enemy=mSpawner->create(1);
        int randomNumber=rand() %700;
        enemy->setPos(randomNumber,0);
 
