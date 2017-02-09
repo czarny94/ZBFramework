@@ -4,6 +4,7 @@
 
 
 #include "SpaceShooter/level.h"
+#include "SpaceShooter/level2.h"
 #include <QApplication>
 #include <QGraphicsLinearLayout>
 #include <QTimer>
@@ -25,8 +26,12 @@ MainMenu::MainMenu():AGameState("MainMenu")
 void MainMenu::onEnter()
 {
     qDebug()<<"wchode do onEnter mm";
-    mNewGameButton=new QPushButton("New Game");//,mCamera);
-    connect(mNewGameButton,SIGNAL(clicked(bool)),this,SLOT(newGame()));
+    mNewGame1Button=new QPushButton("Level 1");//,mCamera);
+    connect(mNewGame1Button,SIGNAL(clicked(bool)),this,SLOT(newGame1()));
+    mNewGame2Button=new QPushButton("Level 2");//,mCamera);
+    connect(mNewGame2Button,SIGNAL(clicked(bool)),this,SLOT(newGame2()));
+    mNewGame3Button=new QPushButton("Level 3");//,mCamera);
+    connect(mNewGame3Button,SIGNAL(clicked(bool)),this,SLOT(newGame3()));
     mExitButton=new QPushButton("Exit");//,mCamera);
     connect(mExitButton,SIGNAL(clicked(bool)),this,SLOT(exit()));
 
@@ -40,12 +45,16 @@ void MainMenu::onEnter()
 //    mCreditsButton->setGeometry(300,0,100,100);
 
 
-    mProxyButtons["NewGame"]=mScene->addWidget(mNewGameButton);
+    mProxyButtons["NewGame1"]=mScene->addWidget(mNewGame1Button);
+    mProxyButtons["NewGame2"]=mScene->addWidget(mNewGame2Button);
+    mProxyButtons["NewGame3"]=mScene->addWidget(mNewGame3Button);
     mProxyButtons["Exit"]= mScene->addWidget(mExitButton);
 
     QGraphicsLinearLayout *Layout = new QGraphicsLinearLayout(
                 Qt::Vertical);
-   Layout->addItem(mProxyButtons["NewGame"]);
+    Layout->addItem(mProxyButtons["NewGame1"]);
+    Layout->addItem(mProxyButtons["NewGame2"]);
+    Layout->addItem(mProxyButtons["NewGame3"]);
    Layout->addItem(mProxyButtons["Exit"]);
 
    QGraphicsWidget *widget = new QGraphicsWidget();
@@ -98,9 +107,21 @@ MainMenu::~MainMenu()
     qDebug()<<"dest mm";
 }
 
-void MainMenu::newGame()
+void MainMenu::newGame1()
 {
     AGameState* temp=new Level();
+    emit(changeState(temp));
+}
+
+void MainMenu::newGame2()
+{
+    AGameState* temp=new Level2(2);
+    emit(changeState(temp));    
+}
+
+void MainMenu::newGame3()
+{
+    AGameState* temp=new Level2(3);
     emit(changeState(temp));
 }
 

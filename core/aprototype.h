@@ -11,6 +11,8 @@ public:
     APrototype(QObject* parent=0);
 public slots:
     virtual QGraphicsItem* clone()=0 ;
+    virtual QGraphicsItem* clone2()=0 ;
+    virtual QGraphicsItem* clone3()=0 ;
 };
 
 #endif // APROTOTYPE_H

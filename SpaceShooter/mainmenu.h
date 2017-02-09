@@ -18,7 +18,9 @@ public:
     void play() override;
     ~MainMenu() override;
 private:
-    QPushButton* mNewGameButton;
+    QPushButton* mNewGame1Button;
+    QPushButton* mNewGame2Button;
+    QPushButton* mNewGame3Button;
     QPushButton* mExitButton;
     QPushButton* mOptionsButton;
     QPushButton* mLoadButtun;
@@ -27,7 +29,9 @@ private:
 
     QMediaPlayer* mediaPlayer;
 private slots:
-    void newGame();
+    void newGame1();
+    void newGame2();
+    void newGame3();
     void exit();
 
 
