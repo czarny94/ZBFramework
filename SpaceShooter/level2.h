@@ -13,42 +13,23 @@
 #include "SpaceShooter/enemyspawner.h"
 #include "SpaceShooter/enemyprototype.h"
 #include "SpaceShooter/gamegui.h"
+#include "SpaceShooter/level.h"
 
 
 
-class Level2 : public AGameState
+class Level2 : public Level
 {
     Q_OBJECT
 public:
     Level2(int mod);
-    void onEnter() override;
-    void onExit() override;
-    void play() override;
 
 
-
-    ~Level2();
 public slots:
     void gameOver();
 private:
-   QGraphicsView* mCamera;
-   QGraphicsScene* mScene;
 
-   Score* mScore;
-   Health* mHealth;
-
-   //GameGUI* mGui;
-
-   GraphicsItemFactory* mSpawner;
-   Player* mPlayer;
-
-   QMediaPlayer* mediaPlayer;
-   QGraphicsItem * boss ;
-   QTimer* mSpawnTimer;
    int mode ;
-   bool createScene();
-   bool createView();
-   bool createMediaPlayer();
+
    bool createSpawner();
   // bool spawnBoss();
 private slots:
