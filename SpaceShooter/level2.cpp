@@ -80,6 +80,10 @@ void Level2::play()
 
 Level2::~Level2()
 {
+    for(auto item:mScene->items()){
+            delete item;
+        }
+
     mScene->deleteLater();
     mCamera->deleteLater();
     mSpawner->deleteLater();
