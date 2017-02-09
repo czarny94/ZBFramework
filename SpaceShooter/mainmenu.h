@@ -13,6 +13,7 @@ class MainMenu : public AGameState
     Q_OBJECT
 public:
     MainMenu();
+
     void onEnter();
     void onExit();
     void play() override;
@@ -20,12 +21,12 @@ public:
 private:
     QPushButton* mNewGameButton;
     QPushButton* mExitButton;
-    QPushButton* mOptionsButton;
-    QPushButton* mLoadButtun;
-    QPushButton* mCreditsButton;
+    //QPushButton* mOptionsButton;
+   // QPushButton* mLoadButtun;
+   // QPushButton* mCreditsButton;
     QHash<QString, QGraphicsProxyWidget*> mProxyButtons;
 
-    QMediaPlayer* mediaPlayer;
+    //QMediaPlayer* mediaPlayer;
 private slots:
     void newGame();
     void exit();

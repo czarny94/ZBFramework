@@ -33,7 +33,7 @@ Player::Player(int health):PixmapEntity(3)
 
 
     mBasicBullet=new BulletPrototype(/*this*/);
-    mPhazer=new GraphicsItemFactory(mBasicBullet/*,this*/);
+    mPhazer=new GraphicsItemFactory(mBasicBullet);
     mStateMachine->start();
 
     calculateCenter();

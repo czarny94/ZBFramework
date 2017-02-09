@@ -40,7 +40,7 @@ SOURCES += \
     SpaceShooter/mainmenu.cpp \
     SpaceShooter/pixmapentity.cpp \
     SpaceShooter/score.cpp \
-    test/pausemenu.cpp
+    SpaceShooter/pausemenu.cpp
 
 HEADERS  += \
     core/agamestate.h \
@@ -70,7 +70,7 @@ HEADERS  += \
     SpaceShooter/mainmenu.h \
     SpaceShooter/pixmapentity.h \
     SpaceShooter/score.h \
-    test/pausemenu.h
+    SpaceShooter/pausemenu.h
 
 FORMS +=
 

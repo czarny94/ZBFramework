@@ -17,18 +17,26 @@ MainMenu::MainMenu():AGameState("MainMenu")
     mCamera=new QGraphicsView(mScene,this);
 
 
-
-
+    mNewGameButton=new QPushButton("New Game");//,mCamera);
+    connect(mNewGameButton,SIGNAL(clicked(bool)),this,SLOT(newGame()));
+    mExitButton=new QPushButton("Exit");//,mCamera);
+    connect(mExitButton,SIGNAL(clicked(bool)),this,SLOT(exit()));
+    mProxyButtons["NewGame"]=mScene->addWidget(mNewGameButton);
+    mProxyButtons["Exit"]= mScene->addWidget(mExitButton);
     qDebug()<<"konstruktor mm";
+    QGraphicsLinearLayout *Layout = new QGraphicsLinearLayout(Qt::Vertical);
+   Layout->addItem(mProxyButtons["NewGame"]);
+   Layout->addItem(mProxyButtons["Exit"]);
+
+   QGraphicsWidget *widget = new QGraphicsWidget();
+       widget->setLayout(Layout);
+       mScene->addItem(widget);
 }
 
 void MainMenu::onEnter()
 {
     qDebug()<<"wchode do onEnter mm";
-    mNewGameButton=new QPushButton("New Game");//,mCamera);
-    connect(mNewGameButton,SIGNAL(clicked(bool)),this,SLOT(newGame()));
-    mExitButton=new QPushButton("Exit");//,mCamera);
-    connect(mExitButton,SIGNAL(clicked(bool)),this,SLOT(exit()));
+
 
 //    mOptionsButton=new QPushButton("Options",this);
 //    mCreditsButton=new QPushButton("Credits",this);
@@ -40,17 +48,9 @@ void MainMenu::onEnter()
 //    mCreditsButton->setGeometry(300,0,100,100);
 
 
-    mProxyButtons["NewGame"]=mScene->addWidget(mNewGameButton);
-    mProxyButtons["Exit"]= mScene->addWidget(mExitButton);
 
-    QGraphicsLinearLayout *Layout = new QGraphicsLinearLayout(
-                Qt::Vertical);
-   Layout->addItem(mProxyButtons["NewGame"]);
-   Layout->addItem(mProxyButtons["Exit"]);
 
-   QGraphicsWidget *widget = new QGraphicsWidget();
-       widget->setLayout(Layout);
-       mScene->addItem(widget);
+
 
 
     mCamera->setFixedSize(800,600);
@@ -91,6 +91,11 @@ void MainMenu::play()
 
 MainMenu::~MainMenu()
 {
+    QList<QGraphicsItem*> list=mScene->items();
+    for(auto obj:list)
+    {
+        delete obj;
+    }
     mScene->clear();
     mCamera->deleteLater();
     mScene->deleteLater();
