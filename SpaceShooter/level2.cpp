@@ -12,14 +12,10 @@
 
 Level2::Level2(int mod):Level()
 {
-
-        qDebug()<<"start kon level2";
-        mode = mod ;
-       setID("level12");
-
-
-
-
+    qDebug()<<"start kon level2";
+    mode = mod ;
+    setID("level12");
+    createSpawner( );
     qDebug()<<"kon level2";
 }
 
@@ -57,7 +53,7 @@ bool Level2::createSpawner()
 void Level2::spawnEnemy2()
 {
 
-       QGraphicsItem* enemy=mSpawner->create(mode);
+       QGraphicsItem* enemy=mSpawner->create(mode);//
        int randomNumber=rand() %650;
        enemy->setPos(randomNumber+25,0);
 

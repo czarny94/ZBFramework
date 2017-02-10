@@ -43,11 +43,12 @@ void GameStateManager::changeState(AGameState* state)
         else
         {
             AGameState* temp=mStates.back();
+            if(temp)
+            {
             temp->onExit();
             temp->disconnect();
             mStates.pop_back(); qDebug()<<"pop state";
-            if(temp)
-            {
+
             qDebug()<<"delete state";temp->deleteLater();
             }
 

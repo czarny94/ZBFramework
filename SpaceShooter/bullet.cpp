@@ -35,22 +35,22 @@ void Bullet::move()
         if(typeid(*obj)==typeid(Enemy))
         {
             mSound->play();
-            scene()->removeItem(obj);
+            //scene()->removeItem(obj);
             scene()->removeItem(this);
 
 
-            dynamic_cast<Enemy*>(obj)->deleteLater() ;
+            //dynamic_cast<Enemy*>(obj)->deleteLater() ;
+            dynamic_cast<Enemy*>(obj)->hit() ;
             delete this;
             return;
         }
         if(typeid(*obj)==typeid(Enemy2))
         {
             mSound->play();
-            scene()->removeItem(obj);
-            scene()->removeItem(this);
+           scene()->removeItem(obj);
+           scene()->removeItem(this);
 
-
-            dynamic_cast<Enemy2*>(obj)->deleteLater() ;
+           dynamic_cast<Enemy2*>(obj)->deleteLater() ;
             /* TODO: rzutowanie na typy
              * wydaje mi się, że nie jest potrzebne robienie tego w ten sposób,
              * bo dla każdego przeciwnika trzeba by było zrobić innego ifa,
@@ -59,7 +59,7 @@ void Bullet::move()
              * a niestety nie mam więcej pomysłów
              * w pewnym momencie może się pojawić więcej tych typów,
              * a wtedy taki switch może się okazać szybszym
-             */
+            */
             delete this;
             return;
         }

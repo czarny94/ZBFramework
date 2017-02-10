@@ -16,9 +16,10 @@ public:
 public slots:
     virtual void move();
     virtual void anim();
-    virtual void hit(int dmg);
+    virtual void hit(int dmg=1);
     virtual void attack();
 protected:
+
     int frame;
     int width;
     int tick;
