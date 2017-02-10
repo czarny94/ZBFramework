@@ -2,6 +2,7 @@
 #include "enemy.h"
 #include "enemy3.h"
 #include "enemy2.h"
+#include "sincrasher.h"
 #include "score.h"
 #include <QTimer>
 #include <QGraphicsScene>
@@ -32,14 +33,14 @@ void Bullet::move()
     QList<QGraphicsItem*> mcollidingItems=collidingItems();
     for(auto obj:mcollidingItems)
     {
-        if(typeid(*obj)==typeid(Enemy))
+        if(typeid(*obj)==typeid(SinCrasher))
         {
             mSound->play();
-            scene()->removeItem(obj);
+            //scene()->removeItem(obj);
             scene()->removeItem(this);
 
 
-            dynamic_cast<Enemy*>(obj)->deleteLater() ;
+            dynamic_cast<SinCrasher*>(obj)->hit(1);
             delete this;
             return;
         }

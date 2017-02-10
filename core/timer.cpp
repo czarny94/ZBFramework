@@ -10,6 +10,5 @@ void Timer::pause(){
     //this->setInterval(remain);
 }
 void Timer::resume(){
-
-    this->start();
+    this->singleShot(remain, this, SLOT(restart()));
 }

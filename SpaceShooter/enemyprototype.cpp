@@ -1,3 +1,4 @@
+#include "sincrasher.h"
 #include "SpaceShooter/enemyprototype.h"
 #include "core/spritemanager.h"
 #include <QDebug>
@@ -19,7 +20,7 @@ Enemy *EnemyPrototype::clone()
     qDebug()<<"clone enemy a";
     QPixmap* pix=mSprite.get();
 
-    return new Enemy(pix,parent());
+    return new SinCrasher(pix,parent());
 
 }
 

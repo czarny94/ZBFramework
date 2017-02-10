@@ -17,6 +17,7 @@ public:
     SinCrasher(QPixmap* texture,QObject* parent=0);
     void move() override;
     void hit(int dmg);
+    ~SinCrasher();
 protected:
     int xPos;
     int speed;

@@ -11,6 +11,9 @@ public:
     void resume();
 protected:
     int remain;
+public slots:
+    void restart(){
+        this->start();
+    }
 };
-
 #endif // TIMER_H

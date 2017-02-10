@@ -25,8 +25,10 @@ void MovedRight::moveRight()
 
 void MovedRight::move()
 {
-    if(mPlayer->x()+100<800)
-        mPlayer->setPos(mPlayer->x()+5,mPlayer->y());
+    if(mPlayer->x()+100<800){
+        mPlayer->setPos(mPlayer->x()+mPlayer->speed,mPlayer->y());
+        //mPlayer->setRotation(30);
+    }
 }
 
 

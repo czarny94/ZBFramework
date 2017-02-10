@@ -17,45 +17,21 @@
 #define PI 3.14159265
 SinCrasher::SinCrasher(QPixmap* texture,QObject* parent):Enemy(texture, parent)
 {
+//    SpriteManager* texManager=SpriteManager::getInstance();
+//    mSprite = texManager->loadSprite("res/ship6.bmp");
     srand( time( NULL ) );
-    xPos = (rand() % 3 + 1) * 150;
-    int enemy = rand() % 2 + 1;
-    enemyType = 1;
-    switch (enemyType) {
-    case 1:
-        this->speed = 1;
-        this->mHealth = 2;
-        this->enemyType = 1;
-        break;
-    case 2:
-        this->speed = 50;
-        this->mHealth = 2;
-        this->enemyType = 2;
-        break;
-    case 3:
-        this->speed = 6;
-        this->mHealth = 2;
-        this->enemyType = 3;
-        break;
-    case 4:
-        this->speed = 3;
-        this->mHealth = 3;
-        this->enemyType = 4;
-        break;
-    default:
-        this->speed = 2;
-        this->mHealth = 10;
-        this->enemyType = 1;
-        break;
-    };
+    xPos = (rand() % 3) * 150;
+
+    this->speed = 1;
+    this->mHealth = 2;
+    this->enemyType = 1;
+
 }
 
 void SinCrasher::move()
 {
-    //srand( time( NULL ) );
-    int move = rand() % 4;
-    switch (this->enemyType) {
-    case 1:
+    switch (xPos) {
+    case 150:
     {
             double tang = (speed)/(x()-((sin(y()*0.5*PI/80))+150 + xPos));
             double degree = atan(tang) * (180/PI);
@@ -63,44 +39,21 @@ void SinCrasher::move()
             //setRotation(360-degree);
     }
         break;
-    case 2:
-
-            switch (move) {
-            case 0:
-                if(pos().x() + speed <= 700)
-                    setPos(x() + speed, y() + 1);
-                else
-                    setPos(x() - speed, y() + 1);
-                break;
-            case 1:
-                if(pos().x() - speed >= 0)
-                   setPos(x() - speed, y() + 1);
-                else
-                   setPos(x() + speed, y() + 1);
-                break;
-            case 2:
-                setPos(x() + 1, y() + speed);
-                break;
-            case 3:
-                if(pos().y() - speed >= 0)
-                    setPos(x() + 1, y() - speed);
-                else
-                    setPos(x() + 1, y() + speed);
-                break;
-            }
-        break;
-    case 3:
-        if(pos().x() < 600)
-            setPos(x() + speed + 1, y() + speed);
-        break;
-    case 4:
-        if(pos().x() < 600)
-            setPos(x() + speed + 1, y() + speed);
+    case 300:
+    {
+        double tang = (speed)/(x()-((sin(y()*0.5*PI/80))+150 + xPos));
+        double degree = atan(tang) * (180/PI);
+        setPos((150*sin(y()*0.5*PI/110))+150 + xPos, y() + speed);
+        //setRotation(360-degree);
+    }
         break;
     default:
-        if(pos().x() < 600)
-            setPos(x() + speed + 1, y() + speed);
-        break;
+    {
+        double tang = (speed)/(x()-((sin(y()*0.5*PI/80))+150 + xPos));
+        double degree = atan(tang) * (180/PI);
+        setPos((150*sin(y()*0.5*PI/80))+150 + xPos, y() + speed);
+        //setRotation(360-degree);
+    }
     };
 
 
@@ -129,8 +82,15 @@ void SinCrasher::move()
 void SinCrasher::hit(int dmg)
 {
     mHealth -= dmg;
+    setOpacity(0.65);
     if(mHealth <= 0){
          scene()->removeItem(this);
         delete this;
     };
+}
+
+SinCrasher::~SinCrasher()
+{
+//    mSprite.reset();
+//    SpriteManager::getInstance()->deleteTexture("res/ship6.bmp");
 }
