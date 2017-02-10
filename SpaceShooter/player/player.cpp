@@ -41,6 +41,13 @@ Player::Player(int health):PixmapEntity(3)
     QRectF bRect= boundingRect();
     qreal width= bRect.width();
     mTopCenter=width/2;
+
+
+    speed = 5;
+
+
+
+
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -189,7 +196,7 @@ void Player::attack()
 Player::~Player()
 {
     mSprite.reset();
-    SpriteManager::getInstance()->deleteTexture("player");
+    SpriteManager::getInstance()->deleteSprite("player");
 }
 
 void Player::hit(int dmg)

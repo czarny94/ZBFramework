@@ -27,7 +27,7 @@ public:
  // bool insertTexture(QPixmap* texture, QString id);
   /**Usuwa pojedyncza texture jesli nie istnieja inne referencje poza ta z mapy*/
   //replaceTexture();
-  void deleteTexture(QString id);
+  void deleteSprite(QString id);
   /**Czysci cala mape*/
   void deleteAll();
   ~SpriteManager();

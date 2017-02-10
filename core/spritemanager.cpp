@@ -80,7 +80,7 @@ std::shared_ptr<QPixmap> SpriteManager::loadSprite(QString fileName,const char *
 
 //}
 
-void SpriteManager::deleteTexture(QString fileName)
+void SpriteManager::deleteSprite(QString fileName)
 {
     auto texture=mSpritess.find(fileName);
     if(texture!=mSpritess.end())

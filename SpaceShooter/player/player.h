@@ -30,15 +30,20 @@ public:
     void keyReleaseEvent(QKeyEvent* event);
     inline QPointF center();
     void setTexture(SPRITE sprite);
-
+    int speed;
     ~Player();
 
 public slots:
     void hit(int dmg=1);
     int getHealth();
     void attack();
+
 signals:
    void entityDead();
+
+
+//signals:
+
 
 protected:
     QPointF mCenter;

@@ -20,8 +20,10 @@ void MovedLeft::moveRight()
 
 void MovedLeft::move()
 {
-    if(mPlayer->x()>0)
-        mPlayer->setPos(mPlayer->x()-5,mPlayer->y());
+    if(mPlayer->x()>0){
+        mPlayer->setPos(mPlayer->x()-mPlayer->speed,mPlayer->y());
+        //mPlayer->setRotation(330);
+    }
 }
 
 void MovedLeft::moveLeft()

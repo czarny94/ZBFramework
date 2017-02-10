@@ -16,7 +16,7 @@ Level::Level():AGameState("Level")
 
     createScene();
     createView();
-    createSpawner();
+
     createMediaPlayer();
 
     mScore=new Score();
@@ -37,8 +37,13 @@ Level::Level():AGameState("Level")
 
     mCamera->setScene(mScene);
 
+
   connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
  // connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
+
+    createSpawner();
+//    connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
+//    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
 
 
 
@@ -145,6 +150,7 @@ bool Level::createSpawner()
     mSpawner=new GraphicsItemFactory(enemyProt,this);
 
     mSpawnTimer=new QTimer(this);
+    connect(enemyProt,SIGNAL(point()),mScore,SLOT(inc()));
     connect(mSpawnTimer,SIGNAL(timeout()),this,SLOT(spawnEnemy()));
     return true;
 }

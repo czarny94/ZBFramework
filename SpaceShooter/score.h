@@ -12,6 +12,7 @@ public:
     int getScore();
 public slots:
      void set(int s);
+     void inc();
 private:
     int score;
 
