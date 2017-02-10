@@ -38,11 +38,10 @@ public slots:
     int getHealth();
     void attack();
 
+
 signals:
    void entityDead();
 
-
-//signals:
 
 
 protected:

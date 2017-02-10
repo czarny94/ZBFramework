@@ -3,6 +3,7 @@
 #include "enemy3.h"
 #include "enemy2.h"
 #include "sincrasher.h"
+#include "boss1.h"
 #include "score.h"
 #include <QTimer>
 #include <QGraphicsScene>
@@ -41,11 +42,13 @@ void Bullet::move()
 
 
 
+
             //dynamic_cast<Enemy*>(obj)->deleteLater() ;
             dynamic_cast<Enemy*>(obj)->hit() ;
 
             dynamic_cast<SinCrasher*>(obj)->hit(1);
             deleteLater();
+
 
             return;
         }
@@ -65,7 +68,9 @@ void Bullet::move()
              * w pewnym momencie może się pojawić więcej tych typów,
              * a wtedy taki switch może się okazać szybszym
             */
+
             deleteLater();
+
             return;
         }
         if(typeid(*obj)==typeid(Enemy3))
@@ -79,7 +84,25 @@ void Bullet::move()
             deleteLater();
             return;
         }
+
+
+
+
+        if(typeid(*obj)==typeid(Boss1))
+        {
+            mSound->play();
+            scene()->removeItem(this);
+            dynamic_cast<Boss1*>(obj)->takedamage(1);
+            deleteLater();
+            return;
+        }
     }
+    /*//usprawnienie hitboxów, coś nie działa jak się poruszają postacie w poziomie
+    //dla poruszających się w pionie jest wszystko ok, ale jak dochodzi poruszanie
+    //się w poziomie to nagle coś się psuje
+    rozwiązane: zapomniałem, że zrobiłem różne klasy dla różnych sposobów poruszania się
+    a metoda sprawdzała tylko dla jednej
+    */
 
     setPos(x(),y()-10);
 
