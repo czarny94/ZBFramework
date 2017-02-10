@@ -1,5 +1,6 @@
 #ifndef MYRECT_H
 #define MYRECT_H
+#include <QObject>
 #include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
@@ -15,10 +16,9 @@
 #include "SpaceShooter/pixmapentity.h"
 #include "SpaceShooter/player/playerstatemachine.h"
 
-class Player : public PixmapEntity
+class Player :public QObject, public PixmapEntity
 {
-   // Q_OBJECT
-
+    Q_OBJECT
 public:
     enum SPRITE{
         STATIC,
@@ -33,12 +33,12 @@ public:
 
     ~Player();
 
-public:// slots:
+public slots:
     void hit(int dmg=1);
     int getHealth();
     void attack();
-//signals:
-
+signals:
+   void entityDead();
 
 protected:
     QPointF mCenter;

@@ -20,16 +20,16 @@ class Level:public AGameState
     Q_OBJECT
 public:
     Level();
-    void onEnter() override;
-    void onExit() override;
-    void play() override;
+    virtual void onEnter() override;
+    virtual void onExit() override;
+    virtual void play() override;
 
 
 
-    ~Level();
+    virtual ~Level();
 public slots:
     void gameOver();
-private:
+protected:
    QGraphicsView* mCamera;
    QGraphicsScene* mScene;
 
@@ -45,14 +45,14 @@ private:
 
    QTimer* mSpawnTimer;
 
-   bool createScene();
-   bool createView();
-   bool createMediaPlayer();
-   bool createSpawner();
-private slots:
-   void spawnEnemy();
+   virtual bool createScene();
+   virtual bool createView();
+   virtual bool createMediaPlayer();
+   virtual bool createSpawner();
+protected slots:
+   virtual void spawnEnemy();
 
-    void test1();
+   virtual void test1();
 
 };
 

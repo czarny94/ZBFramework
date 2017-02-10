@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 
-class PixmapEntity :/*public QObject,*/ public QGraphicsPixmapItem //moze bedzie dziedziczyc tylko po QObject, kolejne klasy beda dziedziczyly po roznych QGraphicsItem
+class PixmapEntity : public QGraphicsPixmapItem //moze bedzie dziedziczyc tylko po QObject, kolejne klasy beda dziedziczyly po roznych QGraphicsItem
 {
     //Q_OBJECT
 public:

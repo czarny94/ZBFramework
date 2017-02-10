@@ -6,9 +6,10 @@
 #include "SpaceShooter/level.h"
 #include "SpaceShooter/level2.h"
 #include <QApplication>
-#include <QGraphicsLinearLayout>
 #include <QTimer>
 #include <QMediaPlaylist>
+
+
 
 MainMenu::MainMenu():AGameState("MainMenu")
 {
@@ -19,21 +20,40 @@ MainMenu::MainMenu():AGameState("MainMenu")
 
 
 
+    mNewGame1Button=new QPushButton("Level 1");
+    connect(mNewGame1Button,SIGNAL(clicked(bool)),this,SLOT(newGame1()));
+    mNewGame2Button=new QPushButton("Level 2");
+    connect(mNewGame2Button,SIGNAL(clicked(bool)),this,SLOT(newGame2()));
+    mNewGame3Button=new QPushButton("Level 3");
+    connect(mNewGame3Button,SIGNAL(clicked(bool)),this,SLOT(newGame3()));
+    mExitButton=new QPushButton("Exit");
+    connect(mExitButton,SIGNAL(clicked(bool)),this,SLOT(exit()));
 
-    qDebug()<<"konstruktor mm";
+    mProxyButtons["NewGame1"]=mScene->addWidget(mNewGame1Button);
+    mProxyButtons["NewGame2"]=mScene->addWidget(mNewGame2Button);
+    mProxyButtons["NewGame3"]=mScene->addWidget(mNewGame3Button);
+    mProxyButtons["Exit"]= mScene->addWidget(mExitButton);
+
+    Layout=new QGraphicsLinearLayout( Qt::Vertical);
+    Layout->addItem(mProxyButtons["NewGame1"]);
+    Layout->addItem(mProxyButtons["NewGame2"]);
+    Layout->addItem(mProxyButtons["NewGame3"]);
+    Layout->addItem(mProxyButtons["Exit"]);
+
+    widget = new QGraphicsWidget();
+    widget->setLayout(Layout);
+    mScene->addItem(widget);
+
 }
 
 void MainMenu::onEnter()
 {
     qDebug()<<"wchode do onEnter mm";
-    mNewGame1Button=new QPushButton("Level 1");//,mCamera);
-    connect(mNewGame1Button,SIGNAL(clicked(bool)),this,SLOT(newGame1()));
-    mNewGame2Button=new QPushButton("Level 2");//,mCamera);
-    connect(mNewGame2Button,SIGNAL(clicked(bool)),this,SLOT(newGame2()));
-    mNewGame3Button=new QPushButton("Level 3");//,mCamera);
-    connect(mNewGame3Button,SIGNAL(clicked(bool)),this,SLOT(newGame3()));
-    mExitButton=new QPushButton("Exit");//,mCamera);
-    connect(mExitButton,SIGNAL(clicked(bool)),this,SLOT(exit()));
+
+
+
+
+
 
 //    mOptionsButton=new QPushButton("Options",this);
 //    mCreditsButton=new QPushButton("Credits",this);
@@ -45,21 +65,10 @@ void MainMenu::onEnter()
 //    mCreditsButton->setGeometry(300,0,100,100);
 
 
-    mProxyButtons["NewGame1"]=mScene->addWidget(mNewGame1Button);
-    mProxyButtons["NewGame2"]=mScene->addWidget(mNewGame2Button);
-    mProxyButtons["NewGame3"]=mScene->addWidget(mNewGame3Button);
-    mProxyButtons["Exit"]= mScene->addWidget(mExitButton);
 
-    QGraphicsLinearLayout *Layout = new QGraphicsLinearLayout(
-                Qt::Vertical);
-    Layout->addItem(mProxyButtons["NewGame1"]);
-    Layout->addItem(mProxyButtons["NewGame2"]);
-    Layout->addItem(mProxyButtons["NewGame3"]);
-   Layout->addItem(mProxyButtons["Exit"]);
 
-   QGraphicsWidget *widget = new QGraphicsWidget();
-       widget->setLayout(Layout);
-       mScene->addItem(widget);
+
+
 
 
     mCamera->setFixedSize(800,600);
@@ -100,6 +109,11 @@ void MainMenu::play()
 
 MainMenu::~MainMenu()
 {
+    QList<QGraphicsItem*> list=mScene->items();
+    for(auto obj:list)
+    {
+        delete obj;
+    }
     mScene->clear();
     mCamera->deleteLater();
     mScene->deleteLater();

@@ -10,3 +10,8 @@ AGameState::~AGameState()
 {
 
 }
+
+void AGameState::setID(QString stateID)
+{
+    mStateID=stateID;
+}

@@ -13,10 +13,7 @@
 
 Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),mSprite(texture)
 {
-
-
-
-
+    mHealth=1;
     width=mSprite->width();
     fWidth=width/frame;
     setPixmap(mSprite->copy(0,0,fWidth,mSprite->height()));
@@ -28,9 +25,6 @@ Enemy::Enemy(QPixmap* texture,QObject* parent):QObject(parent),frame(3),tick(0),
     animTimer->start(100);
 
     mSound=new QSound(":/sfx/res/boom.wav");
-
-
-
 }
 
 Enemy::~Enemy()
@@ -60,7 +54,7 @@ void Enemy::move()
             player->hit();
             scene()->removeItem(this);
 
-            delete this;
+            deleteLater();
             return;
         }
     }
@@ -75,7 +69,13 @@ void Enemy::anim()
 
 void Enemy::hit(int dmg)
 {
+    mHealth-=dmg;
+    qDebug()<<"enemy health"<<mHealth;
+    if(mHealth<=0){
 
+        scene()->removeItem(this);
+        delete this;
+    }
 }
 
 void Enemy::attack()

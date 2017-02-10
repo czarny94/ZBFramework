@@ -6,9 +6,10 @@
 #include <QSound>
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
+#include "SpaceShooter/enemy.h"
 
 
-class Enemy2:public QObject,public QGraphicsPixmapItem
+class Enemy2:public Enemy//public QObject,public QGraphicsPixmapItem
 {
 Q_OBJECT
 public:
@@ -16,19 +17,10 @@ public:
     ~Enemy2();
 public slots:
     virtual void move();
-    virtual void anim();
-    virtual void hit(int dmg);
-    virtual void attack();
 protected:
-    int frame;
-    int width;
-    int tick;
-    QSound* mSound;
-    QPixmap* mSprite;
 
-    qreal fWidth;
     bool heading ; // definiuje w ktorym kierunku sie porusza przeciwnik
-    int mHealth;
+
 signals:
     void shootDown();
 

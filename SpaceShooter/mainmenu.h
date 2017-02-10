@@ -6,13 +6,14 @@
 #include <QString>
 #include <QGraphicsProxyWidget>
 #include <QMediaPlayer>
-
+#include <QGraphicsLinearLayout>
 
 class MainMenu : public AGameState
 {
     Q_OBJECT
 public:
     MainMenu();
+
     void onEnter();
     void onExit();
     void play() override;
@@ -22,12 +23,13 @@ private:
     QPushButton* mNewGame2Button;
     QPushButton* mNewGame3Button;
     QPushButton* mExitButton;
-    QPushButton* mOptionsButton;
-    QPushButton* mLoadButtun;
-    QPushButton* mCreditsButton;
+    //QPushButton* mOptionsButton;
+   // QPushButton* mLoadButtun;
+   // QPushButton* mCreditsButton;
     QHash<QString, QGraphicsProxyWidget*> mProxyButtons;
-
-    QMediaPlayer* mediaPlayer;
+    QGraphicsLinearLayout *Layout;
+    QGraphicsWidget *widget;
+    //QMediaPlayer* mediaPlayer;
 private slots:
     void newGame1();
     void newGame2();

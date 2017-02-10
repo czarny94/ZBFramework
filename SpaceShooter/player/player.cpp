@@ -4,6 +4,7 @@
 #include "SpaceShooter/enemy.h"
 #include <QImage>
 #include <QRectF>
+
 Player::Player(int health):PixmapEntity(3)
 {
     sound=new QSound(":/sfx/res/phaser.wav");
@@ -33,18 +34,13 @@ Player::Player(int health):PixmapEntity(3)
 
 
     mBasicBullet=new BulletPrototype(/*this*/);
-    mPhazer=new GraphicsItemFactory(mBasicBullet/*,this*/);
+    mPhazer=new GraphicsItemFactory(mBasicBullet);
     mStateMachine->start();
 
     calculateCenter();
     QRectF bRect= boundingRect();
     qreal width= bRect.width();
     mTopCenter=width/2;
-
-
-
-
-
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -202,7 +198,7 @@ void Player::hit(int dmg)
     //emit(healthChanges(mHealth));
     if(mHealth <=0)
     {
-       // emit(entityDead());
+        emit(entityDead());
     }
 }
 

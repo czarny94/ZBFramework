@@ -54,3 +54,5 @@ i wszystkich tych rzeczy których wczytywanie było by zbyt kosztowne podczas gr
 GraphicsItemFactory : public QOject
 
 fabryka aktorów , przyjmuje wskaznik na APrototype i wywołuje jego unkcje clone(), w przykładzie użyłem tej funkcji jako karabinu w statku gracza, i spawnera dla przeciwników.
+
+(By Rion) Dodałem klasę bossa która, żeby działać powinna zostać umieszczona w jakimś nowym levelu i mieć dopisaną jedną metodę.

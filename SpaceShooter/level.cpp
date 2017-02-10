@@ -37,8 +37,8 @@ Level::Level():AGameState("Level")
 
     mCamera->setScene(mScene);
 
-//    connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
-//    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
+  connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
+ // connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
 
 
 
@@ -79,6 +79,15 @@ void Level::play()
 
 Level::~Level()
 {
+
+    for(auto item:mScene->items()){
+         if(typeid(*item)==typeid(QObject)){
+                dynamic_cast<QObject*> (item)->deleteLater();
+            }
+            else
+            delete item;
+        }
+    mScene->deleteLater();
     mScene->deleteLater();
     mCamera->deleteLater();
     mSpawner->deleteLater();
@@ -87,7 +96,7 @@ Level::~Level()
 
 void Level::gameOver()
 {
-    //mScene->addText("GAME OVER");
+    mScene->addText("GAME OVER");
     emit(changeState(new MainMenu));
 }
 
