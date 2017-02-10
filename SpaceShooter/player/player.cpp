@@ -41,6 +41,13 @@ Player::Player(int health):PixmapEntity(3)
     QRectF bRect= boundingRect();
     qreal width= bRect.width();
     mTopCenter=width/2;
+
+
+    speed = 5;
+
+
+
+
 }
 
 void Player::keyPressEvent(QKeyEvent *event)

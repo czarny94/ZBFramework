@@ -13,7 +13,11 @@ void Score::set(int s)
     score=s;
     setPlainText(QString("Score: ")+QString::number(score));
 }
-
+void Score::inc()
+{
+    score+=1;
+    setPlainText(QString("Score: ")+QString::number(score));
+}
 int Score::getScore()
 {
     return score;

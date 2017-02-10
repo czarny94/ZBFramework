@@ -1,6 +1,6 @@
 #ifndef ENEMYPROTOTYPE_H
 #define ENEMYPROTOTYPE_H
-
+#include <QDebug>
 #include <QObject>
 #include <QGraphicsItem>
 #include <memory>
@@ -15,11 +15,15 @@ public:
     explicit EnemyPrototype(QObject *parent = 0);
     ~EnemyPrototype();
 signals:
+    void point();
 
 public slots:
     Enemy* clone() override;
     Enemy2 * clone2() override ;
     Enemy3 * clone3() override ;
+    void getPoint(){
+        emit point();
+    }
 private:
     std::shared_ptr<QPixmap> mSprite;
 };

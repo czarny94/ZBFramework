@@ -23,3 +23,4 @@ void Health::set(int h)
 
     qDebug()<<"health--";
 }
+
