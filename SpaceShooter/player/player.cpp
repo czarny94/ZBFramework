@@ -189,7 +189,7 @@ void Player::attack()
 Player::~Player()
 {
     mSprite.reset();
-    SpriteManager::getInstance()->deleteTexture("player");
+    SpriteManager::getInstance()->deleteSprite("player");
 }
 
 void Player::hit(int dmg)

@@ -11,7 +11,7 @@ EnemyPrototype::EnemyPrototype(QObject *parent) : APrototype(parent)
 EnemyPrototype::~EnemyPrototype()
 {
     mSprite.reset();
-    SpriteManager::getInstance()->deleteTexture("res/enemy3.png");
+    SpriteManager::getInstance()->deleteSprite("res/enemy3.png");
 }
 
 Enemy *EnemyPrototype::clone()
