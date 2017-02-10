@@ -45,6 +45,7 @@ SOURCES += \
     SpaceShooter/enemy3.cpp \
     SpaceShooter/pausemenu.cpp \
     core/timer.cpp \
+    SpaceShooter/boss1.cpp \
     SpaceShooter/sincrasher.cpp
 
 HEADERS  += \
@@ -80,6 +81,7 @@ HEADERS  += \
     SpaceShooter/enemy3.h \
     SpaceShooter/pausemenu.h \
     core/timer.h \
+    SpaceShooter/boss1.h \
     SpaceShooter/sincrasher.h
 
 FORMS +=
@@ -90,4 +92,5 @@ RESOURCES += \
     space.qrc
 
 CONFIG += c++11
+
 

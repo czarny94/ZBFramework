@@ -38,12 +38,14 @@ Level::Level():AGameState("Level")
     mCamera->setScene(mScene);
 
 
+
   connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
  // connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
 
     createSpawner();
 //    connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
 //    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
+
 
 
 

@@ -42,11 +42,7 @@ Player::Player(int health):PixmapEntity(3)
     qreal width= bRect.width();
     mTopCenter=width/2;
 
-
     speed = 5;
-
-
-
 
 }
 
