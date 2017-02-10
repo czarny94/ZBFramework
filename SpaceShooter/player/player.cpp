@@ -55,74 +55,26 @@ void Player::keyPressEvent(QKeyEvent *event)
     {
         mStateMachine->moveRight();
     }
-    if(event->key()== Qt::Key_Left)
+    else if(event->key()== Qt::Key_Left)
     {
         mStateMachine->moveLeft();
     }
-    if (event->key()==Qt::Key_Up)
+    else if (event->key()==Qt::Key_Up)
     {
         mStateMachine->moveUp();
     }
-    if (event->key()==Qt::Key_Down)
+    else if (event->key()==Qt::Key_Down)
     {
         mStateMachine->moveDown();
     }
-    if (event->key()==Qt::Key_Space)
+    else if (event->key()==Qt::Key_Space)
     {
         mStateMachine->shoot();
     }
-
-
-
-//   if (event->key()==Qt::Key_Right)
-//   {
-//        if(x()+100<800)
-//        setPos(x()+10,y());
-//        qDebug()<<"right";
-//        if (event->key()==Qt::Key_Space)
-//       {
-//            qDebug()<<"shoot";
-//            attack();
-
-//        }
-//   }
-//   else if(event->key()== Qt::Key_Left)
-//   {
-//       if(x()>0)
-//       setPos(x()-10,y());
-//       if (event->key()==Qt::Key_Space)
-//      {
-//           qDebug()<<"shoot";
-//           attack();
-
-//       }
-//    }
-//    if (event->key()==Qt::Key_Up)
-//    {
-//        setPos(x(),y()-10);
-//        if (event->key()==Qt::Key_Space)
-//       {
-//            qDebug()<<"shoot";
-//            attack();
-
-//        }
-//    }
-//   else if (event->key()==Qt::Key_Down)
-//    {
-//            setPos(x(),y()+10);
-//            if (event->key()==Qt::Key_Space)
-//           {
-//                qDebug()<<"shoot";
-//                attack();
-
-//            }
-//    }
-//    if (event->key()==Qt::Key_Space)
-//   {
-//        qDebug()<<"shoot";
-//        attack();
-
-//    }
+    else
+    {
+        PixmapEntity::keyPressEvent(event);
+    }
 
 }
 
@@ -142,6 +94,10 @@ void Player::keyReleaseEvent(QKeyEvent *event)
          qDebug()<<"key unpressed";
         mStateMachine->stopMoving();
     }
+     else
+     {
+         PixmapEntity::keyReleaseEvent(event);
+     }
 
 }
 

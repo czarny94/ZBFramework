@@ -7,6 +7,13 @@
 Engine::Engine(QObject *parent)
     : QObject(parent)
 {
+    mainWindow = new QMainWindow();
+    //mainWindow->setWindowState(Qt::WindowMaximized);
+    mainWindow->setFixedSize(800, 600);
+    mainWindow->show();
+
+
+
     mStateManager=new GameStateManager(this);
     mCurrentState=nullptr;
     MainMenu* mainMenu=new MainMenu();
@@ -19,7 +26,6 @@ Engine::Engine(QObject *parent)
 
 void Engine::play()
 {
-
     if(mCurrentState)
     {
         mCurrentState->show();
@@ -33,7 +39,9 @@ void Engine::setCurrentState(AGameState *state)
     if(state)
     {
         mCurrentState=state;
+
         play();
+                mainWindow->setCentralWidget(mCurrentState);
     }
 }
 
@@ -41,4 +49,5 @@ Engine::~Engine()
 {
     qDebug()<<"destr engine";
     delete mStateManager;
+    delete mainWindow;
 }

@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsView>
 #include "core/gamestatemanager.h"
+#include <QMainWindow>
 
 
 class Engine : public QObject
@@ -21,7 +22,7 @@ public slots:
 protected:
     GameStateManager* mStateManager;
     AGameState* mCurrentState;
-
+    QMainWindow* mainWindow;
 };
 
 #endif // ENGINE_H

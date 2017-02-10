@@ -24,12 +24,14 @@ public:
     QGraphicsView* getView(){return mCamera;}
     //void setView(QGraphicsView* view)=0;
     virtual ~AGameState();
+
 protected:
     void setID(QString stateID);
 
     QGraphicsView* mCamera;
-    QString mStateID;
     QGraphicsScene* mScene;
+    QString mStateID;
+
     //Engine* mEngine;
 signals:
     AGameState* changeState(AGameState*);

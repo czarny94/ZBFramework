@@ -31,13 +31,10 @@ Level::Level():AGameState("Level")
     mPlayer=new Player;
     mScene->addItem(mPlayer);
     mPlayer->setPos(400,500);
-
-    //mGui=new GameGUI(this);
-    //mScene->addItem(mGui);
+    mPlayer->setActive(true);
 
     mCamera->setScene(mScene);
-
-
+    connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
 
   connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
  // connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
@@ -45,9 +42,6 @@ Level::Level():AGameState("Level")
     createSpawner();
 //    connect(mPlayer,SIGNAL(entityDead()),this,SLOT(gameOver()));
 //    connect(mPlayer,SIGNAL(healthChanges(int)),mHealth,SLOT(set(int)));
-
-
-
 
 
     qDebug()<<"kon level";

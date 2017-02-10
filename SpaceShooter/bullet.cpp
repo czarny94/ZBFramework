@@ -108,7 +108,12 @@ void Bullet::move()
 
     if(pos().y()<=0){
         scene()->removeItem(this);
-        qDebug() << "removed bullet " << (int)this ;
-       deleteLater();
+        deleteLater();
+        qDebug() << "removed bullet " << reinterpret_cast<unsigned long>(this);
+        //pojawił się problem przy usuwaniu pocisku - QCoreApplication::postEvent: Unexpected null receiver
+        //nie wiem jak to obejść szczerze mówiąc
+        //załatwione, obejście tego znów było dziecinnie proste, ajak w poprzednim wypadku, musiałem zmienić warunki
+        delete this ;
+
     }
 }

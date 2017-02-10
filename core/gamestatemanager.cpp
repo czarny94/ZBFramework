@@ -76,7 +76,7 @@ AGameState *GameStateManager::getState()
 GameStateManager::~GameStateManager()
 {
 
-    for(auto obj:mStates)
+    for(auto obj : mStates)
     {
         delete obj;
         //obj->deleteLater();
