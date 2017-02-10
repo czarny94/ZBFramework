@@ -19,8 +19,9 @@ Enemy *EnemyPrototype::clone()
 {
     qDebug()<<"clone enemy a";
     QPixmap* pix=mSprite.get();
-
-    return new SinCrasher(pix,parent());
+    Enemy * enemy = new SinCrasher(pix,parent());
+    connect(enemy, SIGNAL(enemyKilled()), this, SLOT(getPoint()));
+    return enemy;
 
 }
 

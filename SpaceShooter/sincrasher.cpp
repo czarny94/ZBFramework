@@ -84,7 +84,8 @@ void SinCrasher::hit(int dmg)
     mHealth -= dmg;
     setOpacity(0.65);
     if(mHealth <= 0){
-         scene()->removeItem(this);
+        emit enemyKilled();
+        scene()->removeItem(this);
         delete this;
     };
 }

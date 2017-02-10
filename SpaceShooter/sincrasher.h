@@ -13,6 +13,7 @@
 #include "SpaceShooter/player/player.h"
 class SinCrasher : public Enemy
 {
+  Q_OBJECT
 public:
     SinCrasher(QPixmap* texture,QObject* parent=0);
     void move() override;
@@ -23,6 +24,8 @@ protected:
     int speed;
     int enemyType;
     bool right = true;
+signals:
+    void enemyKilled();
 };
 
 #endif // SINCRASHER_H
