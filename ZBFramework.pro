@@ -43,7 +43,9 @@ SOURCES += \
     SpaceShooter/level2.cpp \
     SpaceShooter/enemy2.cpp \
     SpaceShooter/enemy3.cpp \
-    SpaceShooter/pausemenu.cpp
+    SpaceShooter/pausemenu.cpp \
+    core/timer.cpp \
+    SpaceShooter/sincrasher.cpp
 
 HEADERS  += \
     core/agamestate.h \
@@ -76,7 +78,9 @@ HEADERS  += \
     SpaceShooter/level2.h \
     SpaceShooter/enemy2.h \
     SpaceShooter/enemy3.h \
-    SpaceShooter/pausemenu.h
+    SpaceShooter/pausemenu.h \
+    core/timer.h \
+    SpaceShooter/sincrasher.h
 
 FORMS +=
 
